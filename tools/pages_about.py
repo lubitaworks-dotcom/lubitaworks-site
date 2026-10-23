@@ -22,7 +22,7 @@ def build():
   <div class="about">
     <h3>運営者情報</h3>
     <ul>
-      <li>屋号：LUBITA WORKS</li>
+      <li>屋号：LUBITA WORKS（ルビタワークス）</li>
       <li>お問い合わせ：<a href="mailto:{MAIL}">{MAIL}</a></li>
       <li>公式X：<a href="{X_URL}">@LUBITAWORKS</a></li>
       <li>販売業者の表示：<a href="/tokushoho/">特定商取引法に基づく表記</a></li>

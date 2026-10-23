@@ -30,9 +30,12 @@ def _years():
     return str(FIRST_YEAR) if y <= FIRST_YEAR else f"{FIRST_YEAR}–{y}"
 
 
-def page(*, title, desc, path, body, crumb=""):
+BRAND = "LUBITA WORKS（ルビタワークス）"   # トップのタイトル等。カナの検索で見つかるように読みを併記する
+
+
+def page(*, title, desc, path, body, crumb="", head_extra=""):
     """共通のヘッド・ヘッダー・フッターで包んだHTMLを返す。path は '/apps/gensyu-log/' の形。"""
-    full_title = "LUBITA WORKS" if title == "" else f"{title} | LUBITA WORKS"
+    full_title = BRAND if title == "" else f"{title} | LUBITA WORKS"
     return f"""<!doctype html>
 <html lang="ja">
 <head>
@@ -51,7 +54,7 @@ def page(*, title, desc, path, body, crumb=""):
 <link rel="icon" type="image/png" href="/assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/css/site.css">
-</head>
+{head_extra}</head>
 <body>
 <div class="wrap">
 

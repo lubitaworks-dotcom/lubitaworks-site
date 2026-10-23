@@ -1,7 +1,9 @@
 """トップページ。"""
+import json
+
 import parts
 import zukan_data
-from lib import X_URL, page
+from lib import SITE, X_URL, page
 
 
 def build():
@@ -52,4 +54,13 @@ def build():
   </div>
 </section>"""
 
-    return {"/": page(title="", desc="LUBITA WORKS — 暮らしにそっと寄りそう、小さなアプリをつくっています。", path="/", body=body)}
+    # 構造化データ: サイト名の別名（カナ・ひらがな）をGoogleに伝える。表示には出ない
+    ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "WebSite", "@id": f"{SITE}/#website", "url": f"{SITE}/", "name": "LUBITA WORKS",
+         "alternateName": ["ルビタワークス", "るびたわーくす"], "inLanguage": "ja"},
+        {"@type": "Organization", "@id": f"{SITE}/#org", "url": f"{SITE}/", "name": "LUBITA WORKS",
+         "alternateName": ["ルビタワークス", "るびたわーくす"], "sameAs": [X_URL]},
+    ]}
+    head_extra = '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + "</script>\n"
+    return {"/": page(title="", path="/", body=body, head_extra=head_extra,
+                      desc="LUBITA WORKS（ルビタワークス）— 暮らしにそっと寄りそう、小さなアプリをつくっています。")}
