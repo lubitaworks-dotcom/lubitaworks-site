@@ -49,6 +49,21 @@ def write_pages():
     return written
 
 
+def write_seo(written):
+    """sitemap.xml と robots.txt。404 は載せない。privacy は既存ページなので、あるものだけ載せる。"""
+    from lib import SITE
+    urls = ["/" if p == ROOT / "index.html" else "/" + p.parent.relative_to(ROOT).as_posix() + "/"
+            for p in written if p.name == "index.html"]
+    urls += ["/privacy/" + d.name + "/" for d in sorted((ROOT / "privacy").glob("*/")) if (d / "index.html").exists()]
+    nl = chr(10)
+    rows = "".join(f"  <url><loc>{SITE}{u}</loc></url>{nl}" for u in sorted(set(urls)))
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>' + nl
+           + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + nl + rows + "</urlset>" + nl)
+    (ROOT / "sitemap.xml").write_text(xml, encoding="utf-8", newline=nl)
+    robots = f"User-agent: *{nl}Allow: /{nl}{nl}Sitemap: {SITE}/sitemap.xml{nl}"
+    (ROOT / "robots.txt").write_text(robots, encoding="utf-8", newline=nl)
+
+
 def collect_chars():
     chars = set()
     for lo, hi in BASE_RANGES:
@@ -90,6 +105,7 @@ def subset_fonts():
 
 def main():
     pages = write_pages()
+    write_seo(pages)
     print(f"{len(pages)} pages")
     subset_fonts()
 

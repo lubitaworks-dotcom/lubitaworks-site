@@ -1,9 +1,16 @@
 """共通部品。ページ生成（build.py）から使う。クラス名は assets/css/site.css と同じ。"""
+import datetime
 from html import escape
 
 SITE = "https://lubitaworks.com"
 X_URL = "https://x.com/LUBITAWORKS"
 MAIL = "info@lubitaworks.com"
+FIRST_YEAR = 2026
+
+
+def _years():
+    y = datetime.date.today().year
+    return str(FIRST_YEAR) if y <= FIRST_YEAR else f"{FIRST_YEAR}–{y}"
 
 
 def page(*, title, desc, path, body, crumb=""):
@@ -21,6 +28,8 @@ def page(*, title, desc, path, body, crumb=""):
 <meta property="og:description" content="{escape(desc)}">
 <meta property="og:url" content="{SITE}{path}">
 <meta property="og:type" content="website">
+<meta property="og:image" content="{SITE}/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -40,9 +49,10 @@ def page(*, title, desc, path, body, crumb=""):
 
 <img class="motif" src="/assets/img/sakurajima_motif_teal.png" alt="" aria-hidden="true">
 <footer class="site">
-  <span>© LUBITA WORKS</span>
+  <span>© {_years()} LUBITA WORKS</span>
   <span>お問い合わせ：<a href="mailto:{MAIL}">{MAIL}</a></span>
 </footer>
+<p class="legal">App Store は Apple Inc. のサービスマークです。Google Play は Google LLC の商標です。X は X Corp. の商標です。</p>
 
 </div>
 </body>

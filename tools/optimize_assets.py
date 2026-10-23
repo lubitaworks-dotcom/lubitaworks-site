@@ -54,8 +54,20 @@ def favicons():
     tile.convert("RGB").save(ROOT / "assets/img/apple-touch-icon.png", optimize=True)
 
 
+def og():
+    """SNS共有用 1200x630。paper地にロゴ（ink）とルビタ。"""
+    img = Image.new("RGB", (1200, 630), (245, 246, 241))
+    logo = Image.open(STORE / "SNS素材" / "lockup_transparent_ink.png").convert("RGBA")
+    logo = logo.resize((880, round(logo.height * 880 / logo.width)), Image.LANCZOS)
+    img.paste(logo, ((1200 - logo.width) // 2, 150), logo)
+    r = Image.open(ROOT / "assets/img/rubita_normal_20.png").convert("RGBA").resize((160, 160), Image.NEAREST)
+    img.paste(r, ((1200 - 160) // 2, 360), r)
+    img.save(ROOT / "assets/img/og.png", optimize=True)
+
+
 if __name__ == "__main__":
     icons()
     favicons()
+    og()
     if (ROOT / "tools/data/apps.json").exists():
         shots()
