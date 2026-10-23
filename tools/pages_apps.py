@@ -7,9 +7,12 @@ from lib import MAIL, breadcrumb, page
 
 def _body(a, apps):
     chips = "<span>iOS</span>" + ("<span>Android</span>" if a.get("play_pkg") else "")
-    store = f'<a href="https://apps.apple.com/jp/app/id{a["apple_id"]}">App Store で見る</a>'
+    # 公式バッジ（改変しない。高さは両社そろえる。調査: 進行管理/会社サイト_ストアバッジ_調査.md）
+    store = (f'<a href="https://apps.apple.com/jp/app/id{a["apple_id"]}"><img src="/assets/img/badges/appstore-ja.svg" '
+             f'alt="App Storeでダウンロード" width="141" height="52"></a>')
     if a.get("play_pkg"):
-        store += f'\n      <a href="https://play.google.com/store/apps/details?id={a["play_pkg"]}">Google Play で見る</a>'
+        store += (f'\n      <a href="https://play.google.com/store/apps/details?id={a["play_pkg"]}"><img src="/assets/img/badges/googleplay-ja.png" '
+                  f'alt="Google Playで手に入れよう" width="176" height="52"></a>')
     shots = "\n".join(
         f'    <div class="shot"><div class="win-bar dot"><i></i><i></i><i></i><span>shot_{i:02d}</span></div>'
         f'<img src="/assets/img/apps/{a["slug"]}/shot{i}.webp" alt="{e(s["alt"])}" width="440" height="952" loading="lazy"></div>'

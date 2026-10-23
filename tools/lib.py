@@ -1,11 +1,28 @@
 """共通部品。ページ生成（build.py）から使う。クラス名は assets/css/site.css と同じ。"""
 import datetime
+import json
 from html import escape
+from pathlib import Path
 
 SITE = "https://lubitaworks.com"
 X_URL = "https://x.com/LUBITAWORKS"
 MAIL = "info@lubitaworks.com"
 FIRST_YEAR = 2026
+
+
+def analytics_token():
+    """Cloudflare Web Analytics のビーコントークン（未設定なら None＝解析スクリプトを入れない）。"""
+    p = Path(__file__).resolve().parent / "data" / "analytics.json"
+    return json.loads(p.read_text(encoding="utf-8")).get("cloudflare_web_analytics_token") if p.exists() else None
+
+
+def _beacon():
+    t = analytics_token()
+    if not t:
+        return ""
+    attr = json.dumps({"token": t})
+    return ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+            f"data-cf-beacon='{attr}'></script>" + chr(10))
 
 
 def _years():
@@ -56,7 +73,7 @@ def page(*, title, desc, path, body, crumb=""):
 <p class="legal">App Store は Apple Inc. のサービスマークです。Google Play は Google LLC の商標です。X は X Corp. の商標です。</p>
 
 </div>
-</body>
+{_beacon()}</body>
 </html>
 """
 

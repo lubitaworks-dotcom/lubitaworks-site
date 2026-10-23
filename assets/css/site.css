@@ -201,9 +201,10 @@ footer.site a { display: inline-flex; align-items: center; min-height: 44px; }
 .chips { display: flex; gap: 8px; margin-top: 6px; }
 .chips span { border: 2px solid var(--ac); padding: 0 10px; font-size: 14px; color: var(--ac); }
 .lead { font-size: 18px; font-weight: 700; margin: 0; color: var(--hd); }
-.store { display: flex; flex-wrap: wrap; gap: 12px; }
-.store a { display: inline-flex; align-items: center; min-height: 52px; padding: 8px 24px; background: var(--hd); color: var(--bg); text-decoration: none; font-weight: 700; border: 2px solid var(--hd); }
-.store a:hover { color: var(--bg); filter: brightness(1.2); }   /* 仮のボタン。公式バッジは素材と使用ルールを確認してから差し替え */
+/* ストアの公式バッジ（Apple/Google）。改変しない: 色・角丸・影・拡縮の歪み・hover拡大なし。周囲の余白は高さの1/4以上（13px）、高さは両社そろえる */
+.store { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin: 13px 0; }
+.store a { display: inline-flex; line-height: 0; }
+.store img { display: block; height: 52px; width: auto; }
 .shots { display: flex; gap: 20px; overflow-x: auto; padding: 4px 4px 16px; scroll-snap-type: x mandatory; }
 .shot { flex: 0 0 min(220px, 62vw); aspect-ratio: 9 / 19.5; scroll-snap-align: start; background: var(--pn); border: 2px solid var(--ac); box-shadow: 6px 6px 0 var(--sh); display: flex; flex-direction: column; }
 .shot .win-bar { padding: 4px 10px; font-size: 12px; }
@@ -266,7 +267,6 @@ footer.site a { display: inline-flex; align-items: center; min-height: 44px; }
   .ident img { width: 72px; height: 72px; border-radius: 17px; }
   .ident h1 { font-size: 26px; }
   .lead { font-size: 16px; }
-  .store a { min-height: 48px; padding: 6px 18px; font-size: 15px; flex: 1 1 140px; justify-content: center; }
   .bubble { font-size: 14px; padding: 10px 14px; }
   .shot { flex-basis: min(160px, 46vw); }
   .feat > div { padding: 14px 16px; }

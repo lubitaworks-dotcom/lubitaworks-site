@@ -1,8 +1,20 @@
 """このサイトについて /about/。運営者情報（屋号のみ）・画像の扱い・免責・フォント・商標。"""
-from lib import MAIL, X_URL, breadcrumb, page
+from lib import MAIL, X_URL, analytics_token, breadcrumb, page
+
+# アクセス解析を入れたときだけ表示する説明。Cloudflare公式FAQで確認できた範囲だけを書く
+# （「Cookieを使わない」「個人を特定しない」等は、公式の記載を確認できていないので書かない）。
+ANALYTICS = """
+    <h3>アクセス解析について</h3>
+    <ul>
+      <li>このサイトでは、閲覧数などの傾向を把握するために、Cloudflare Web Analytics でアクセス状況を集計しています。ページの閲覧数、流入元、国、端末の種類などを、サイト全体の集計として見ています。</li>
+      <li>解析のために、お使いのブラウザは Cloudflare のサーバー（static.cloudflareinsights.com、cloudflareinsights.com）と通信します。</li>
+      <li>広告やプロフィール作成のための追跡は行っていません。</li>
+    </ul>
+"""
 
 
 def build():
+    analytics = ANALYTICS if analytics_token() else ""
     body = f"""<section class="blk" style="padding-top:8px">
   <div class="tag">[ 05 ] ABOUT</div>
   <h2 class="hh">このサイトについて</h2>
@@ -35,6 +47,7 @@ def build():
       <li>アプリの利用に関する詳細は、各アプリのプライバシーポリシーをご覧ください（<a href="/support/">サポート</a>からご確認いただけます）。</li>
     </ul>
 
+{analytics}
     <h3>使用しているフォント</h3>
     <ul>
       <li>Archivo Black、DotGothic16、Zen Kaku Gothic New（いずれも SIL Open Font License 1.1）。ライセンス文は <a href="/assets/fonts/OFL.txt">OFL.txt</a> をご覧ください。</li>
