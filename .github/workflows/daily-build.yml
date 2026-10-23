@@ -1,0 +1,68 @@
+# 毎朝、図鑑の解放状況（lubita-x-autopost の投稿ログ）を読んでサイトを作り直し、変わっていたらコミットする。
+# Xの投稿は毎日 8:00 JST。その30分後（23:30 UTC = 8:30 JST）に実行する。
+# 必要な Secret: AUTOPOST_DEPLOY_KEY（lubita-x-autopost に登録した読み取り専用のデプロイキーの秘密鍵）
+name: daily-build
+
+on:
+  schedule:
+    - cron: "30 23 * * *"
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - "tools/**"
+      - ".github/workflows/daily-build.yml"
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: daily-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: site
+      - uses: actions/checkout@v4
+        with:
+          repository: lubitaworks-dotcom/lubita-x-autopost
+          ssh-key: ${{ secrets.AUTOPOST_DEPLOY_KEY }}
+          path: autopost
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow fonttools brotli
+      - name: build
+        working-directory: site
+        env:
+          LUBITA_MONSTERS: ${{ github.workspace }}/autopost/monsters
+          LUBITA_FONT_SRC: ${{ runner.temp }}/fonts_src
+        run: |
+          python tools/build.py
+      - name: 守るものが壊れていないか確認
+        working-directory: site
+        run: python tools/check_protected.py
+      - name: 変更があればコミット
+        id: commit
+        working-directory: site
+        run: |
+          git config user.name "lubitaworks-bot"
+          git config user.email "info@lubitaworks.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "build: 図鑑の解放状況・データを反映（自動）"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Pagesの再ビルドを依頼（GITHUB_TOKENのpushではPagesが動かない場合に備える）
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST repos/${{ github.repository }}/pages/builds
