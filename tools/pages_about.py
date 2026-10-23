@@ -8,7 +8,7 @@ ANALYTICS = """
     <ul>
       <li>このサイトでは、閲覧数などの傾向を把握するために、Cloudflare Web Analytics でアクセス状況を集計しています。ページの閲覧数、流入元、国、端末の種類などを、サイト全体の集計として見ています。</li>
       <li>解析のために、お使いのブラウザは Cloudflare のサーバー（static.cloudflareinsights.com、cloudflareinsights.com）と通信します。</li>
-      <li>広告やプロフィール作成のための追跡は行っていません。</li>
+      <li>Cloudflare は、Web Analytics について「個々の訪問者を追跡しない」と説明しています（Cloudflare ダッシュボードの表示）。当サイトでも、広告やプロフィール作成のための追跡は行っていません。</li>
     </ul>
 """
 

@@ -21,7 +21,7 @@ def _beacon():
     if not t:
         return ""
     attr = json.dumps({"token": t})
-    return ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+    return ("<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' "
             f"data-cf-beacon='{attr}'></script>" + chr(10))
 
 
