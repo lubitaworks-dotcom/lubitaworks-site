@@ -50,6 +50,7 @@ def page(*, title, desc, path, body, crumb=""):
 <img class="motif" src="/assets/img/sakurajima_motif_teal.png" alt="" aria-hidden="true">
 <footer class="site">
   <span>© {_years()} LUBITA WORKS</span>
+  <span class="fl"><a href="/about/">このサイトについて</a><a href="/support/">サポート</a></span>
   <span>お問い合わせ：<a href="mailto:{MAIL}">{MAIL}</a></span>
 </footer>
 <p class="legal">App Store は Apple Inc. のサービスマークです。Google Play は Google LLC の商標です。X は X Corp. の商標です。</p>

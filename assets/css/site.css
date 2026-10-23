@@ -75,6 +75,13 @@ nav.site a { text-decoration: none; padding: 10px; min-height: 44px; display: in
 nav.site a:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
 footer.site { border-top: 1px solid var(--ln); padding: 24px 0 48px; display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; color: var(--mu); font-size: 14px; }
 footer.site a { display: inline-flex; align-items: center; min-height: 44px; }
+.fl { display: flex; flex-wrap: wrap; gap: 0 20px; }
+.about { background: var(--pn); border: 1px solid var(--ln); padding: 8px 26px 22px; max-width: 760px; }
+.about h3 { margin: 22px 0 6px; font-size: 17px; font-weight: 900; color: var(--hd); }
+.about h3::before { content: ">"; font-family: 'DotGothic16', sans-serif; color: var(--ac); margin-right: .5em; }
+.about ul { margin: 0; padding-left: 1.3em; font-size: 15px; }
+.about li { margin: 4px 0; }
+.about li a { display: inline-block; padding: 2px 0; }
 .legal { margin: 0; padding: 0 0 40px; color: var(--mu); font-size: 12px; line-height: 1.7; }   /* 商標の但し書き（フッター下） */
 .motif { display: block; width: 100%; height: auto; opacity: .55; image-rendering: pixelated; margin-bottom: 8px; }   /* 桜島モチーフ */
 
