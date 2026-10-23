@@ -82,6 +82,11 @@ footer.site a { display: inline-flex; align-items: center; min-height: 44px; }
 .about ul { margin: 0; padding-left: 1.3em; font-size: 15px; }
 .about li { margin: 4px 0; }
 .about li a { display: inline-block; padding: 2px 0; }
+/* 特商法の表（行ごとに見出し＋内容。スマホは縦積み） */
+.tbl { width: 100%; border-collapse: collapse; font-size: 15px; margin: 8px 0 16px; }
+.tbl th, .tbl td { text-align: left; vertical-align: top; padding: 12px 8px; border-bottom: 1px solid var(--ln); }
+.tbl th { width: 11em; color: var(--hd); font-weight: 900; white-space: nowrap; }
+@media (max-width: 640px) { .tbl th, .tbl td { display: block; width: auto; padding: 4px 0; border: 0; } .tbl th { padding-top: 14px; } .tbl td { border-bottom: 1px solid var(--ln); padding-bottom: 12px; } }
 /* プライバシーポリシー（本文HTMLは原文のまま。枠と文字の装飾だけ） */
 .policy { background: var(--pn); border: 1px solid var(--ln); padding: 12px 26px 28px; max-width: 760px; font-size: 15px; }
 .policy h1 { margin: 16px 0 6px; font-size: clamp(22px, 6vw, 30px); font-weight: 900; line-height: 1.4; color: var(--hd); }
