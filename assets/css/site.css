@@ -82,6 +82,18 @@ footer.site a { display: inline-flex; align-items: center; min-height: 44px; }
 .about ul { margin: 0; padding-left: 1.3em; font-size: 15px; }
 .about li { margin: 4px 0; }
 .about li a { display: inline-block; padding: 2px 0; }
+/* プライバシーポリシー（本文HTMLは原文のまま。枠と文字の装飾だけ） */
+.policy { background: var(--pn); border: 1px solid var(--ln); padding: 12px 26px 28px; max-width: 760px; font-size: 15px; }
+.policy h1 { margin: 16px 0 6px; font-size: clamp(22px, 6vw, 30px); font-weight: 900; line-height: 1.4; color: var(--hd); }
+.policy .meta { margin: 0 0 12px; display: flex; flex-wrap: wrap; gap: 0 20px; font-family: 'DotGothic16', sans-serif; font-size: 13px; color: var(--mu); }
+.policy h2 { margin: 26px 0 6px; font-size: 18px; font-weight: 900; color: var(--hd); }
+.policy h2::before { content: ">"; font-family: 'DotGothic16', sans-serif; color: var(--ac); margin-right: .5em; }
+.policy h3 { margin: 18px 0 4px; font-size: 16px; font-weight: 900; color: var(--hd); }
+.policy p { margin: 8px 0; }
+.policy ul, .policy ol { margin: 8px 0; padding-left: 1.4em; }
+.policy li { margin: 4px 0; }
+.policy hr { border: 0; border-top: 1px solid var(--ln); margin: 22px 0; }
+.policy a { display: inline-block; padding: 2px 0; }
 .legal { margin: 0; padding: 0 0 40px; color: var(--mu); font-size: 12px; line-height: 1.7; }   /* 商標の但し書き（フッター下） */
 .motif { display: block; width: 100%; height: auto; opacity: .55; image-rendering: pixelated; margin-bottom: 8px; }   /* 桜島モチーフ */
 

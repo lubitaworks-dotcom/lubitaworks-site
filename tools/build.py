@@ -29,9 +29,9 @@ FONTS = {  # 出力名: (原本ファイル, 取得URL)
 }
 # 常に含める文字: ASCII・ひらがな・カタカナ・全角記号。新しい文字は build のたびに自動で追加される
 BASE_RANGES = [(0x20, 0x7E), (0x3000, 0x303F), (0x3041, 0x3096), (0x30A0, 0x30FF), (0xFF01, 0xFF5E), (0x2190, 0x2193), (0x25A0, 0x25CF), (0x2605, 0x2606)]
-# 公開物の走査から外すもの（既存ページは別CSSで、このフォントを使わない）
+# 公開物の走査から外すもの
 GENERATED_DIRS = ["apps", "zukan"]  # build が全部作り直すディレクトリ（手で置かない）
-SKIP_DIRS = {"privacy", ".git", "tools", "assets"}
+SKIP_DIRS = {".git", "tools", "assets"}
 
 
 def write_pages():
