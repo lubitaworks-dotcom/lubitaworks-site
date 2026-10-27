@@ -16,12 +16,13 @@ def _set(x):
     <div class="top">
       <div class="art"><img src="/assets/img/stickers/{x["slug"]}-main.webp" alt="{e(x["name"])}のメイン画像" width="240" height="240" loading="lazy"></div>
       <div class="info">
-        <h2 class="hh">{e(x["name"])}</h2>
+        <h2 class="hh"><span>{parts.nb(x["name"])}</span></h2>
         <div class="chips dot"><span>{x["count"]}個</span><span>¥{x["price"]}</span><span>{e(x["chara"])}</span></div>
         <p class="muted" style="margin:0">{e(x["blurb"])}</p>
         <div>{go}</div>
       </div>
     </div>
+    <p class="shcap dot">▼ 全{x["count"]}個（LINEストアで拡大して見られます）</p>
     <div class="sheet"><img src="/assets/img/stickers/{x["slug"]}-sheet.webp" alt="{e(x["alt"])}" width="960" height="832" loading="lazy"></div>
   </article>"""
 
@@ -36,4 +37,5 @@ def build():
   <p class="muted" style="font-size:14px;margin:0">スタンプの絵は、画像生成AIを使って制作しています。価格はLINEストアの表示が優先されます。</p>
 </section>"""
     return {"/stickers/": page(title="LINEスタンプ", path="/stickers/", crumb=breadcrumb(("stickers", None)),
+                               og_image="/assets/img/og-stickers.png",
                                desc="LUBITA WORKSのLINEスタンプ。ルビタ図鑑のモンスターが、ドット絵のスタンプになりました。", body=body)}

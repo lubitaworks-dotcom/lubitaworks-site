@@ -33,7 +33,7 @@ def _years():
 BRAND = "LUBITA WORKS（ルビタワークス）"   # トップのタイトル等。カナの検索で見つかるように読みを併記する
 
 
-def page(*, title, desc, path, body, crumb="", head_extra=""):
+def page(*, title, desc, path, body, crumb="", head_extra="", og_image="/assets/img/og.png"):
     """共通のヘッド・ヘッダー・フッターで包んだHTMLを返す。path は '/apps/gensyu-log/' の形。"""
     full_title = BRAND if title == "" else f"{title} | LUBITA WORKS"
     return f"""<!doctype html>
@@ -48,7 +48,7 @@ def page(*, title, desc, path, body, crumb="", head_extra=""):
 <meta property="og:description" content="{escape(desc)}">
 <meta property="og:url" content="{SITE}{path}">
 <meta property="og:type" content="website">
-<meta property="og:image" content="{SITE}/assets/img/og.png">
+<meta property="og:image" content="{SITE}{og_image}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/assets/img/favicon-64.png">

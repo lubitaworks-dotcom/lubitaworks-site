@@ -1,5 +1,6 @@
 """ページをまたいで使うHTML部品（トップ・図鑑・アプリ詳細）。構造とクラス名は handoff の叩き台に合わせてある。"""
 import json
+import re
 from html import escape as e
 from pathlib import Path
 
@@ -42,11 +43,19 @@ def load_stickers():
     return [x for x in d if x.get("visible")]
 
 
+def nb(name):
+    """末尾の「（返事）スタンプ」を1かたまりにして、「ス/タンプ」のような途中折り返しを防ぐ。"""
+    m = re.search(r"(返事)?スタンプ$", name)
+    if not m:
+        return e(name)
+    return e(name[:m.start()]) + f'<span style="white-space:nowrap">{e(m.group(0))}</span>'
+
+
 def sticker_cards(sets):
     return chr(10).join(
         f'    <a class="card" href="/stickers/#{x["slug"]}" style="text-decoration:none"><span class="cap dot">LINE STICKER / {x["count"]}</span>'
         f'<div class="art"><img src="/assets/img/stickers/{x["slug"]}-main.webp" alt="{e(x["name"])}のメイン画像" width="240" height="240" loading="lazy"></div>'
-        f'<span class="nm">{e(x["name"])}</span></a>' for x in sets)
+        f'<span class="nm">{nb(x["name"])}</span></a>' for x in sets)
 
 
 def zhead(sub, title="敵キャラ図鑑", img="rubita_surprised_20", alt="おどろくルビタ"):
