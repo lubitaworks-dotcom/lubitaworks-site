@@ -61,7 +61,7 @@ def page(*, title, desc, path, body, crumb="", head_extra=""):
 <header class="site">
   <a class="logo" href="/">LUBITA WORKS<span class="cur" aria-hidden="true">_</span></a>
   <nav class="site" aria-label="メイン">
-    <a href="/#apps">/apps</a><a href="/zukan/">/zukan</a><a href="/#log">/log</a><a href="{X_URL}">/x</a>
+    <a href="/#apps">/apps</a><a href="/zukan/">/zukan</a><a href="/stickers/">/stickers</a><a href="/#log">/log</a><a href="{X_URL}">/x</a>
   </nav>
 </header>
 {crumb}
@@ -73,7 +73,7 @@ def page(*, title, desc, path, body, crumb="", head_extra=""):
   <span class="fl"><a href="/about/">このサイトについて</a><a href="/support/">サポート</a><a href="/tokushoho/">特定商取引法に基づく表記</a></span>
   <span>お問い合わせ：<a href="mailto:{MAIL}">{MAIL}</a></span>
 </footer>
-<p class="legal">App Store は Apple Inc. のサービスマークです。Google Play は Google LLC の商標です。X は X Corp. の商標です。</p>
+<p class="legal">App Store は Apple Inc. のサービスマークです。Google Play は Google LLC の商標です。X は X Corp. の商標です。LINE はLINEヤフー株式会社の商標または登録商標です。</p>
 
 </div>
 {_beacon()}</body>

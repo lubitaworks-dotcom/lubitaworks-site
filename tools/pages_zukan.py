@@ -30,7 +30,7 @@ def _pager(nos, cur, latest_no):
 
 def _body(f, nos, latest_no):
     return f"""<section class="blk" style="padding-top:8px">
-  <div class="tag">[ 02 ] ENEMY FILE</div>
+  <div class="tag">[ 03 ] ENEMY FILE</div>
 {parts.zhead(parts.ZUKAN_LEAD)}
   <div class="cards">
 {parts.floor_cards(f)}

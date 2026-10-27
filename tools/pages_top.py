@@ -8,11 +8,12 @@ from lib import SITE, X_URL, page
 
 def build():
     apps = parts.load_apps()
+    stickers = parts.load_stickers()
     floors = zukan_data.load()
     zukan_data.sync_images(floors)
     latest = zukan_data.latest_floor(floors)
     started = any(f["unlocked"] for f in floors)
-    tag = "[ 02 ] ENEMY FILE — 毎朝1体" if started else "[ 02 ] ENEMY FILE — 10/26 スタート"
+    tag = "[ 03 ] ENEMY FILE — 毎朝1体" if started else "[ 03 ] ENEMY FILE — 10/26 スタート"
 
     body = f"""<section id="top" class="hero-top">
   <div class="win">
@@ -30,8 +31,17 @@ def build():
   <div class="rubita-wrap"><div class="rubita-frame"><img src="/assets/img/rubita_normal_20.png" alt="ロボのキャラクター「ルビタ」"></div></div>
 </section>
 
+<section id="stickers" class="blk">
+  <div class="tag">[ 01 ] LINE STICKER</div>
+  <h2 class="hh">LINEスタンプ</h2>
+  <div class="cards">
+{parts.sticker_cards(stickers)}
+  </div>
+  <a class="btn dot more" href="/stickers/">&gt; スタンプを見る</a>
+</section>
+
 <section id="apps" class="blk">
-  <div class="tag">[ 01 ] APPS — {len(apps)} files found</div>
+  <div class="tag">[ 02 ] APPS — {len(apps)} files found</div>
   <div class="list">
 {parts.app_rows(apps)}
   </div>
@@ -48,7 +58,7 @@ def build():
 </section>
 
 <section id="log" class="blk">
-  <div class="tag">[ 03 ] DEV LOG</div>
+  <div class="tag">[ 04 ] DEV LOG</div>
   <div class="log dot">
 {parts.devlog(apps)}
   </div>

@@ -36,6 +36,19 @@ def devlog(apps, limit=5):
         for dt, n, v, note in items[:limit])
 
 
+def load_stickers():
+    """公開するスタンプセット（visible のもの）。"""
+    d = json.loads((DATA / "stickers.json").read_text(encoding="utf-8"))
+    return [x for x in d if x.get("visible")]
+
+
+def sticker_cards(sets):
+    return chr(10).join(
+        f'    <a class="card" href="/stickers/#{x["slug"]}" style="text-decoration:none"><span class="cap dot">LINE STICKER / {x["count"]}</span>'
+        f'<div class="art"><img src="/assets/img/stickers/{x["slug"]}-main.webp" alt="{e(x["name"])}のメイン画像" width="240" height="240" loading="lazy"></div>'
+        f'<span class="nm">{e(x["name"])}</span></a>' for x in sets)
+
+
 def zhead(sub):
     return f"""  <div class="zhead">
     <div class="rubita-frame s"><img src="/assets/img/rubita_surprised_20.png" alt="おどろくルビタ"></div>
