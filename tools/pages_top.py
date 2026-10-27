@@ -33,7 +33,7 @@ def build():
 
 <section id="stickers" class="blk">
   <div class="tag">[ 01 ] LINE STICKER</div>
-  <h2 class="hh">LINEスタンプ</h2>
+{parts.zhead(parts.STICKER_LEAD, "LINEスタンプ", "rubita_happy_20", "にっこりするルビタ")}
   <div class="cards">
 {parts.sticker_cards(stickers)}
   </div>

@@ -49,16 +49,17 @@ def sticker_cards(sets):
         f'<span class="nm">{e(x["name"])}</span></a>' for x in sets)
 
 
-def zhead(sub):
+def zhead(sub, title="敵キャラ図鑑", img="rubita_surprised_20", alt="おどろくルビタ"):
     return f"""  <div class="zhead">
-    <div class="rubita-frame s"><img src="/assets/img/rubita_surprised_20.png" alt="おどろくルビタ"></div>
+    <div class="rubita-frame s"><img src="/assets/img/{img}.png" alt="{alt}"></div>
     <div class="t">
-      <h2 class="hh">敵キャラ図鑑</h2>
+      <h2 class="hh">{title}</h2>
       <p class="muted">{e(sub)}</p>
     </div>
   </div>"""
 
 
+STICKER_LEAD = "ルビタ図鑑のモンスターが、LINEスタンプになりました。ドット絵で、日常のあいさつや返事に使えます。"
 ZUKAN_LEAD = "電脳の世界にひそむ敵キャラが、毎朝Xに1体ずつ現れます。出会った全員を、ここに図鑑として残していきます。"
 
 

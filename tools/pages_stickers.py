@@ -5,7 +5,6 @@ import parts
 from lib import breadcrumb, page
 
 AUTHOR = "https://line.me/S/shop/sticker/author/6779143"
-LEAD = "ルビタ図鑑のモンスターが、LINEスタンプになりました。ドット絵で、日常のあいさつや返事に使えます。"
 
 
 def _set(x):
@@ -31,8 +30,7 @@ def build():
     sets = parts.load_stickers()
     body = f"""<section class="blk" style="padding-top:8px">
   <div class="tag">[ 01 ] LINE STICKER</div>
-  <h1 class="hh" style="font-size:26px">LINEスタンプ</h1>
-  <p class="muted" style="margin:0">{e(LEAD)}</p>
+{parts.zhead(parts.STICKER_LEAD, "LINEスタンプ", "rubita_happy_20", "にっこりするルビタ")}
 {chr(10).join(_set(x) for x in sets)}
   <div><a class="btn line dot" href="{AUTHOR}">&gt; 作者ページ（LINEストア）</a></div>
   <p class="muted" style="font-size:14px;margin:0">スタンプの絵は、画像生成AIを使って制作しています。価格はLINEストアの表示が優先されます。</p>
