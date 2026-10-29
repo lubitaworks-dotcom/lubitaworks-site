@@ -32,7 +32,37 @@ def build(slug, folder):
     print(slug, (out / f"{slug}-sheet.webp").stat().st_size // 1024, "KB")
 
 
+def build_animated(slug, folder, count):
+    """動くスタンプ: 提出用の APNG。メインは動くwebp、一覧は各スタンプの1コマ目（正方形セル、4列）。"""
+    from PIL import ImageSequence
+    d = SRC.parent / folder / "5_提出用"
+    out = ROOT / "assets/img/stickers"
+    out.mkdir(parents=True, exist_ok=True)
+
+    def on_paper(fr, size):
+        fr = fr.convert("RGBA").resize(size, Image.LANCZOS)
+        base = Image.new("RGB", size, PAPER)
+        base.paste(fr, (0, 0), fr)
+        return base
+
+    m = Image.open(d / "main.png")
+    frames = [on_paper(f, (240, 240)) for f in ImageSequence.Iterator(m)]
+    dur = m.info.get("duration", 100)
+    frames[0].save(out / f"{slug}-main.webp", save_all=True, append_images=frames[1:], duration=dur, loop=0, quality=80)
+    rows = (count + 3) // 4
+    sheet = Image.new("RGB", (960, 240 * rows), PAPER)
+    for i in range(count):
+        im = Image.open(d / "stickers" / f"{i + 1:02d}.png")
+        im.seek(0)
+        sheet.paste(on_paper(im, (240, 240)), ((i % 4) * 240, (i // 4) * 240))
+    sheet.save(out / f"{slug}-sheet.webp", quality=88)
+    print(slug, (out / f"{slug}-main.webp").stat().st_size // 1024, "KB main,", (out / f"{slug}-sheet.webp").stat().st_size // 1024, "KB sheet")
+
+
 if __name__ == "__main__":
     data = json.loads((ROOT / "tools/data/stickers.json").read_text(encoding="utf-8"))
     for s in data:
-        build(s["slug"], s["folder"])
+        if s.get("animated"):
+            build_animated(s["slug"], s["folder"], s["count"])
+        else:
+            build(s["slug"], s["folder"])

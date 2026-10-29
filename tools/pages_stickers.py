@@ -17,13 +17,13 @@ def _set(x):
       <div class="art"><img src="/assets/img/stickers/{x["slug"]}-main.webp" alt="{e(x["name"])}のメイン画像" width="240" height="240" loading="lazy"></div>
       <div class="info">
         <h2 class="hh"><span>{parts.nb(x["name"])}</span></h2>
-        <div class="chips dot"><span>{x["count"]}個</span><span>¥{x["price"]}</span><span>{e(x["chara"])}</span></div>
+        <div class="chips dot"><span>{"動く " if x.get("animated") else ""}{x["count"]}個</span><span>¥{x["price"]}</span><span>{e(x["chara"])}</span></div>
         <p class="muted" style="margin:0">{e(x["blurb"])}</p>
         <div>{go}</div>
       </div>
     </div>
-    <p class="shcap dot">▼ 全{x["count"]}個（LINEストアで拡大して見られます）</p>
-    <div class="sheet"><img src="/assets/img/stickers/{x["slug"]}-sheet.webp" alt="{e(x["alt"])}" width="960" height="832" loading="lazy"></div>
+    <p class="shcap dot">▼ 全{x["count"]}個{"（一覧は1コマ目。動きはLINEストアで見られます）" if x.get("animated") else "（LINEストアで拡大して見られます）"}</p>
+    <div class="sheet"><img src="/assets/img/stickers/{x["slug"]}-sheet.webp" alt="{e(x["alt"])}" width="960" height="{240 * ((x["count"] + 3) // 4) if x.get("animated") else 832}" loading="lazy"></div>
   </article>"""
 
 
