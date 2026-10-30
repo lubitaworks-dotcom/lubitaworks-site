@@ -32,17 +32,19 @@ def build(slug, folder):
     print(slug, (out / f"{slug}-sheet.webp").stat().st_size // 1024, "KB")
 
 
-def build_animated(slug, folder, count):
+def build_animated(slug, folder, count, export="5_提出用"):
     """動くスタンプ: 提出用の APNG。メインは動くwebp、一覧は各スタンプの1コマ目（正方形セル、4列）。"""
     from PIL import ImageSequence
-    d = SRC.parent / folder / "5_提出用"
+    d = SRC.parent / folder / export
     out = ROOT / "assets/img/stickers"
     out.mkdir(parents=True, exist_ok=True)
 
     def on_paper(fr, size):
-        fr = fr.convert("RGBA").resize(size, Image.LANCZOS)
+        fr = fr.convert("RGBA")
+        k = min(size[0] / fr.width, size[1] / fr.height)   # 切り詰め版は横長・縦長があるので、縦横比を保って中央に置く
+        fr = fr.resize((max(1, round(fr.width * k)), max(1, round(fr.height * k))), Image.LANCZOS)
         base = Image.new("RGB", size, PAPER)
-        base.paste(fr, (0, 0), fr)
+        base.paste(fr, ((size[0] - fr.width) // 2, (size[1] - fr.height) // 2), fr)
         return base
 
     m = Image.open(d / "main.png")
@@ -63,6 +65,6 @@ if __name__ == "__main__":
     data = json.loads((ROOT / "tools/data/stickers.json").read_text(encoding="utf-8"))
     for s in data:
         if s.get("animated"):
-            build_animated(s["slug"], s["folder"], s["count"])
+            build_animated(s["slug"], s["folder"], s["count"], s.get("export", "5_提出用"))
         else:
             build(s["slug"], s["folder"])
