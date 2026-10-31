@@ -35,7 +35,7 @@ def build():
   <div class="tag">[ 01 ] LINE STICKER</div>
 {parts.zhead(parts.STICKER_LEAD, "LINEスタンプ", "rubita_happy_20", "にっこりするルビタ")}
   <div class="cards">
-{parts.sticker_cards(stickers)}
+{parts.sticker_cards(parts.jp_stickers(stickers))}
   </div>
   <a class="btn dot more" href="/stickers/">&gt; スタンプを見る</a>
 </section>

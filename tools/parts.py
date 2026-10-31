@@ -33,18 +33,47 @@ def devlog(apps, stickers=(), limit=8):
     スタンプは stickers.json の release_date があるものだけ（公開表示にするときに発売日を入れる）。"""
     items = [(d["date"], f'<span class="t">{e(a["name"])} {e(d["version"])}</span>', e(d["note"]))
              for a in apps for d in a.get("devlog", []) if d.get("date")]
-    items += [(s["release_date"], f'<span class="t"><a href="/stickers/#{s["slug"]}">LINEスタンプ</a></span>',
-               f'「{e(s["name"])}」を発売（{s["count"]}個入り）')
+    # 海外限定版（region あり）は、日本では買えないので、見出しに国名を明記し、注記を添える
+    items += [(s["release_date"],
+               f'<span class="t"><a href="/stickers/#{s["slug"]}">LINEスタンプ{region_tag(s)}</a></span>',
+               (f'「{e(s["name"])}」を{REGIONS[s["region"]]["name"]}で発売（{s["count"]}個入り。日本では購入できません）'
+                if s.get("region") else f'「{e(s["name"])}」を発売（{s["count"]}個入り）'))
               for s in stickers if s.get("release_date")]
     items.sort(key=lambda x: x[0], reverse=True)
     return "\n".join(f'    <div><span class="d">[{dt}]</span>{label}<span>{note}</span></div>'
                      for dt, label, note in items[:limit])
 
 
+# 海外限定版。stickers.json の region に入れるコード。販売国はこの1か国のみ（日本では購入できない）
+REGIONS = {
+    "TW": {"name": "台湾", "lang": "zh-Hant", "price_unit": "NT$"},
+    "TH": {"name": "タイ", "lang": "th", "price_unit": "฿"},
+}
+
+
+def region_tag(s):
+    """見出しに足す「（台湾限定）」。日本向け（region なし）は空。"""
+    return f'（{REGIONS[s["region"]]["name"]}限定）' if s.get("region") else ""
+
+
 def load_stickers():
-    """公開するスタンプセット（visible のもの）。"""
+    """公開するスタンプセット（visible のもの。日本向けと海外限定版の両方）。"""
     d = json.loads((DATA / "stickers.json").read_text(encoding="utf-8"))
-    return [x for x in d if x.get("visible")]
+    out = [x for x in d if x.get("visible")]
+    for x in out:  # 設定の取り違え（未知の国コード・価格表示の抜け）は、ビルドで止める
+        if x.get("region") and x["region"] not in REGIONS:
+            raise ValueError(f'stickers.json: {x["slug"]} の region が不明: {x["region"]}')
+        if x.get("region") and not x.get("price_label"):
+            raise ValueError(f'stickers.json: {x["slug"]} は海外限定版なので price_label（例: "NT$30"）が必要')
+    return out
+
+
+def jp_stickers(sets):
+    return [x for x in sets if not x.get("region")]
+
+
+def overseas_stickers(sets):
+    return [x for x in sets if x.get("region")]
 
 
 def nb(name):
