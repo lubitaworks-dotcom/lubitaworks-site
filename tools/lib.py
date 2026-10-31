@@ -61,7 +61,7 @@ def page(*, title, desc, path, body, crumb="", head_extra="", og_image="/assets/
 <header class="site">
   <a class="logo" href="/">LUBITA WORKS<span class="cur" aria-hidden="true">_</span></a>
   <nav class="site" aria-label="メイン">
-    <a href="/#apps">/apps</a><a href="/zukan/">/zukan</a><a href="/stickers/">/stickers</a><a href="/#log">/log</a><a href="{X_URL}">/x</a>
+    <a href="/#apps">/apps</a><a href="/zukan/">/zukan</a><a href="/stickers/">/stickers</a><a href="/#news">/news</a><a href="{X_URL}">/x</a>
   </nav>
 </header>
 {crumb}

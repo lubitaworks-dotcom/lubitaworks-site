@@ -57,10 +57,11 @@ def build():
 {parts.follow_band()}
 </section>
 
-<section id="log" class="blk">
-  <div class="tag">[ 04 ] DEV LOG</div>
+<section id="news" class="blk">
+  <span id="log"></span>
+  <div class="tag">[ 04 ] NEWS</div>
   <div class="log dot">
-{parts.devlog(apps)}
+{parts.devlog(apps, stickers)}
   </div>
 </section>"""
 

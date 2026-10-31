@@ -28,13 +28,17 @@ def app_rows(apps):
     return "\n".join(rows)
 
 
-def devlog(apps, limit=5):
-    """各アプリの開発ログを日付の新しい順に。日付が確認できていない項目は載せない。"""
-    items = [(d["date"], a["name"], d["version"], d["note"]) for a in apps for d in a.get("devlog", []) if d.get("date")]
-    items.sort(reverse=True)
-    return "\n".join(
-        f'    <div><span class="d">[{dt}]</span><span class="t">{e(n)} {e(v)}</span><span>{e(note)}</span></div>'
-        for dt, n, v, note in items[:limit])
+def devlog(apps, stickers=(), limit=8):
+    """NEWS（アプリの更新＋LINEスタンプの発売）を日付の新しい順に。日付が確認できていない項目は載せない。
+    スタンプは stickers.json の release_date があるものだけ（公開表示にするときに発売日を入れる）。"""
+    items = [(d["date"], f'<span class="t">{e(a["name"])} {e(d["version"])}</span>', e(d["note"]))
+             for a in apps for d in a.get("devlog", []) if d.get("date")]
+    items += [(s["release_date"], f'<span class="t"><a href="/stickers/#{s["slug"]}">LINEスタンプ</a></span>',
+               f'「{e(s["name"])}」を発売（{s["count"]}個入り）')
+              for s in stickers if s.get("release_date")]
+    items.sort(key=lambda x: x[0], reverse=True)
+    return "\n".join(f'    <div><span class="d">[{dt}]</span>{label}<span>{note}</span></div>'
+                     for dt, label, note in items[:limit])
 
 
 def load_stickers():
