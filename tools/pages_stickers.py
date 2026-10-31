@@ -33,7 +33,7 @@ def _set(x):
       </div>
     </div>
     <p class="shcap dot">▼ 全{x["count"]}個{"（一覧は1コマ目。動きはLINEストアで見られます）" if x.get("animated") else "（LINEストアで拡大して見られます）"}</p>
-    <div class="sheet"><img src="/assets/img/stickers/{x["slug"]}-sheet.webp" alt="{e(x["alt"])}" width="960" height="{240 * ((x["count"] + 3) // 4) if x.get("animated") else 832}" loading="lazy"></div>
+    <div class="sheet"><img src="/assets/img/stickers/{x["slug"]}-sheet.webp" alt="{e(x["alt"])}" width="960" height="{(240 if x.get("animated") else 208) * ((x["count"] + 3) // 4)}" loading="lazy"></div>
   </article>"""
 
 

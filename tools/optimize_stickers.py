@@ -16,15 +16,16 @@ PAPER = (245, 246, 241)   # site.css の .card .art と同じ
 CELL = (240, 208)
 
 
-def build(slug, folder):
+def build(slug, folder, count=16):
+    """count は個数（16なら4×4、32なら4×8。台湾・タイ向けのヒツジ＆ヤドカリ32個版など）。"""
     out = ROOT / "assets/img/stickers"
     out.mkdir(parents=True, exist_ok=True)
     m = Image.open(SRC / folder / "main.png").convert("RGBA")
     base = Image.new("RGB", m.size, PAPER)   # メインは透過なので、paper色の地に載せる
     base.paste(m, (0, 0), m)
     base.save(out / f"{slug}-main.webp", quality=90)
-    sheet = Image.new("RGB", (CELL[0] * 4, CELL[1] * 4), PAPER)
-    for i in range(16):
+    sheet = Image.new("RGB", (CELL[0] * 4, CELL[1] * ((count + 3) // 4)), PAPER)
+    for i in range(count):
         im = Image.open(SRC / folder / f"{i + 1:02d}.png").convert("RGBA")
         im = im.resize(CELL, Image.LANCZOS)
         sheet.paste(im, ((i % 4) * CELL[0], (i // 4) * CELL[1]), im)
@@ -67,4 +68,4 @@ if __name__ == "__main__":
         if s.get("animated"):
             build_animated(s["slug"], s["folder"], s["count"], s.get("export", "5_提出用"))
         else:
-            build(s["slug"], s["folder"])
+            build(s["slug"], s["folder"], s["count"])
