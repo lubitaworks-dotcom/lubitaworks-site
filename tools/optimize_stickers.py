@@ -16,27 +16,28 @@ PAPER = (245, 246, 241)   # site.css の .card .art と同じ
 CELL = (240, 208)
 
 
-def build(slug, folder, count=16):
+def build(slug, folder, count=16, src_dir=None):
     """count は個数（16なら4×4、32なら4×8。台湾・タイ向けのヒツジ＆ヤドカリ32個版など）。"""
     out = ROOT / "assets/img/stickers"
     out.mkdir(parents=True, exist_ok=True)
-    m = Image.open(SRC / folder / "main.png").convert("RGBA")
+    d = Path(src_dir) if src_dir else SRC / folder   # src_dir: 図鑑/書き出し以外にある素材の絶対パス（ドヤちゅー隊など）
+    m = Image.open(d / "main.png").convert("RGBA")
     base = Image.new("RGB", m.size, PAPER)   # メインは透過なので、paper色の地に載せる
     base.paste(m, (0, 0), m)
     base.save(out / f"{slug}-main.webp", quality=90)
     sheet = Image.new("RGB", (CELL[0] * 4, CELL[1] * ((count + 3) // 4)), PAPER)
     for i in range(count):
-        im = Image.open(SRC / folder / f"{i + 1:02d}.png").convert("RGBA")
+        im = Image.open(d / f"{i + 1:02d}.png").convert("RGBA")
         im = im.resize(CELL, Image.LANCZOS)
         sheet.paste(im, ((i % 4) * CELL[0], (i // 4) * CELL[1]), im)
     sheet.save(out / f"{slug}-sheet.webp", quality=88)
     print(slug, (out / f"{slug}-sheet.webp").stat().st_size // 1024, "KB")
 
 
-def build_animated(slug, folder, count, export="5_提出用"):
+def build_animated(slug, folder, count, export="5_提出用", src_dir=None):
     """動くスタンプ: 提出用の APNG。メインは動くwebp、一覧は各スタンプの1コマ目（正方形セル、4列）。"""
     from PIL import ImageSequence
-    d = SRC.parent / folder / export
+    d = Path(src_dir) if src_dir else SRC.parent / folder / export
     out = ROOT / "assets/img/stickers"
     out.mkdir(parents=True, exist_ok=True)
 
@@ -48,7 +49,7 @@ def build_animated(slug, folder, count, export="5_提出用"):
         base.paste(fr, ((size[0] - fr.width) // 2, (size[1] - fr.height) // 2), fr)
         return base
 
-    m = Image.open(d / "main.png")
+    m = Image.open(d / "main.png" if (d / "main.png").exists() else d / "stickers" / "main.png")   # ドヤちゅー隊は stickers/ の中
     frames = [on_paper(f, (240, 240)) for f in ImageSequence.Iterator(m)]
     dur = m.info.get("duration", 100)
     frames[0].save(out / f"{slug}-main.webp", save_all=True, append_images=frames[1:], duration=dur, loop=0, quality=80)
@@ -66,6 +67,6 @@ if __name__ == "__main__":
     data = json.loads((ROOT / "tools/data/stickers.json").read_text(encoding="utf-8"))
     for s in data:
         if s.get("animated"):
-            build_animated(s["slug"], s["folder"], s["count"], s.get("export", "5_提出用"))
+            build_animated(s["slug"], s["folder"], s["count"], s.get("export", "5_提出用"), s.get("src_dir"))
         else:
-            build(s["slug"], s["folder"], s["count"])
+            build(s["slug"], s["folder"], s["count"], s.get("src_dir"))

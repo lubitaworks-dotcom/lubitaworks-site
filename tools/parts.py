@@ -65,7 +65,8 @@ def load_stickers():
             raise ValueError(f'stickers.json: {x["slug"]} の region が不明: {x["region"]}')
         if x.get("region") and not x.get("price_label"):
             raise ValueError(f'stickers.json: {x["slug"]} は海外限定版なので price_label（例: "NT$30"）が必要')
-    return out
+    # 新しい販売開始日が上（日付が同じなら、あとから追加した方が上。release_date の無いものは一番下）
+    return sorted(reversed(out), key=lambda x: x.get("release_date") or "", reverse=True)
 
 
 def jp_stickers(sets):

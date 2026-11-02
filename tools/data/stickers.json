@@ -52,5 +52,34 @@
     "visible": true,
     "export": "5_提出用_切詰め",
     "release_date": "2026-10-30"
+  },
+  {
+    "slug": "doya-chu",
+    "folder": "ネズミ戦隊",
+    "src_dir": "C:\\Users\\tashi\\OneDrive\\Desktop\\LUBITA WORKS\\休憩室\\LINEスタンプ試作\\ネズミ戦隊\\提出用_静止画",
+    "name": "ドヤちゅー隊",
+    "chara": "ドヤちゅー隊",
+    "count": 24,
+    "price": 190,
+    "blurb": "かっこつけたいのに、だいたい失敗する5匹のネズミ戦隊のスタンプ24個。「作戦通り」「知らんがな」など、ジト目でツッコミ・煽り・リアクション。ドット絵のネタ系です。",
+    "line_url": "https://line.me/S/sticker/37708255",
+    "alt": "赤・黄・桃・緑・青の5匹のネズミ戦隊が「作戦通り」「知らんがな」「ずっこけ」などの言葉でリアクションする、ドット絵のスタンプ24個の一覧",
+    "visible": true,
+    "release_date": "2026-11-03"
+  },
+  {
+    "slug": "doya-chu-anime",
+    "folder": "ネズミ戦隊",
+    "src_dir": "C:\\Users\\tashi\\OneDrive\\Desktop\\LUBITA WORKS\\休憩室\\LINEスタンプ試作\\ネズミ戦隊\\動くスタンプ\\5_提出用",
+    "animated": true,
+    "name": "ドヤちゅー隊 動く！",
+    "chara": "ドヤちゅー隊",
+    "count": 24,
+    "price": 250,
+    "blurb": "かっこつけたいのに、だいたい失敗する5匹のネズミ戦隊が動くスタンプ24個。「作戦通り」「知らんがな」など、ジト目でツッコミ・煽り・リアクション。ドット絵のネタ系です。",
+    "line_url": "https://line.me/S/sticker/37709956",
+    "alt": "赤・黄・桃・緑・青の5匹のネズミ戦隊が「作戦通り」「知らんがな」「ずっこけ」などの言葉でリアクションする、動くドット絵スタンプ24個の一覧（一覧は1コマ目）",
+    "visible": true,
+    "release_date": "2026-11-03"
   }
 ]
