@@ -81,5 +81,20 @@
     "alt": "赤・黄・桃・緑・青の5匹のネズミ戦隊が「作戦通り」「知らんがな」「ずっこけ」などの言葉でリアクションする、動くドット絵スタンプ24個の一覧（一覧は1コマ目）",
     "visible": true,
     "release_date": "2026-11-03"
+  },
+  {
+    "slug": "polite-ai-error",
+    "folder": "丁寧すぎるAI",
+    "src_dir": "C:\\Users\\tashi\\OneDrive\\Desktop\\LUBITA WORKS\\休憩室\\LINEスタンプ試作\\AI口調スタンプ\\APNG_シリーズ2",
+    "animated": true,
+    "name": "丁寧すぎるAI【ちょっぴりエラー編】",
+    "chara": "ポリゴンAI",
+    "count": 24,
+    "price": 250,
+    "blurb": "青いローポリ人型のAIが動くスタンプ24個。謝る、訂正する、言い訳する。「先ほどの訂正を訂正します」など、自信満々なのに、なぜか間違っているAIあるあるです。",
+    "line_url": "https://line.me/S/sticker/37733937",
+    "alt": "青いローポリ人型のAIが「先ほどの訂正を訂正します」などの言葉で謝ったり言い訳をしたりする、動くスタンプ24個の一覧（一覧は1コマ目）",
+    "visible": true,
+    "release_date": "2026-11-03"
   }
 ]

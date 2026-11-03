@@ -56,7 +56,7 @@ def build_animated(slug, folder, count, export="5_提出用", src_dir=None):
     rows = (count + 3) // 4
     sheet = Image.new("RGB", (960, 240 * rows), PAPER)
     for i in range(count):
-        im = Image.open(d / "stickers" / f"{i + 1:02d}.png")
+        im = Image.open((d / "stickers" if (d / "stickers").is_dir() else d) / f"{i + 1:02d}.png")   # stickers/ が無ければ、直下に 01〜NN.png（AI口調スタンプ）
         im.seek(0)
         sheet.paste(on_paper(im, (240, 240)), ((i % 4) * 240, (i // 4) * 240))
     sheet.save(out / f"{slug}-sheet.webp", quality=88)
