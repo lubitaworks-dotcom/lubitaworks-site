@@ -96,5 +96,20 @@
     "alt": "青いローポリ人型のAIが「先ほどの訂正を訂正します」などの言葉で謝ったり言い訳をしたりする、動くスタンプ24個の一覧（一覧は1コマ目）",
     "visible": true,
     "release_date": "2026-11-03"
+  },
+  {
+    "slug": "healing-friend-ai",
+    "folder": "ココロを癒す友だちAI",
+    "src_dir": "C:\\Users\\tashi\\OneDrive\\Desktop\\LUBITA WORKS\\休憩室\\LINEスタンプ試作\\AI口調スタンプ\\カジュアル版\\APNG",
+    "animated": true,
+    "name": "ココロを癒す友だちAI",
+    "chara": "ポリゴンAI",
+    "count": 24,
+    "price": 250,
+    "blurb": "青いローポリ人型のAIが、友だちのような口調で寄り添う動くスタンプ24個。共感、励まし、ちょっとした相談、おやすみまで。タメ口で話しかけてくれます。",
+    "line_url": "https://line.me/S/sticker/37739629",
+    "alt": "青いローポリ人型のAIが「結論から言うね、あなたは悪くない」「ここにいるよ、いつでもね」などの言葉で寄り添う、動くスタンプ24個の一覧（一覧は1コマ目）",
+    "visible": true,
+    "release_date": "2026-11-04"
   }
 ]
