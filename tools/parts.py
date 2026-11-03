@@ -31,14 +31,15 @@ def app_rows(apps):
 def devlog(apps, stickers=(), limit=8):
     """NEWS（アプリの更新＋LINEスタンプの発売）を日付の新しい順に。日付が確認できていない項目は載せない。
     スタンプは stickers.json の release_date があるものだけ（公開表示にするときに発売日を入れる）。"""
-    items = [(d["date"], f'<span class="t">{e(a["name"])} {e(d["version"])}</span>', e(d["note"]))
-             for a in apps for d in a.get("devlog", []) if d.get("date")]
+    # 同じ日付なら、スタンプ（先に並べる）→アプリの更新の順（日付だけで時刻は持たないため、sort は安定ソートで先に入れた方が上）
     # 海外限定版（region あり）は、日本では買えないので、見出しに国名を明記し、注記を添える
-    items += [(s["release_date"],
+    items = [(s["release_date"],
                f'<span class="t"><a href="/stickers/#{s["slug"]}">LINEスタンプ{region_tag(s)}</a></span>',
                (f'「{e(s["name"])}」を{REGIONS[s["region"]]["name"]}で発売（{s["count"]}個入り。日本では購入できません）'
                 if s.get("region") else f'「{e(s["name"])}」を発売（{s["count"]}個入り）'))
               for s in stickers if s.get("release_date")]
+    items += [(d["date"], f'<span class="t">{e(a["name"])} {e(d["version"])}</span>', e(d["note"]))
+             for a in apps for d in a.get("devlog", []) if d.get("date")]
     items.sort(key=lambda x: x[0], reverse=True)
     return "\n".join(f'    <div><span class="d">[{dt}]</span>{label}<span>{note}</span></div>'
                      for dt, label, note in items[:limit])
