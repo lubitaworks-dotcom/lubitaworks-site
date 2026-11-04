@@ -111,5 +111,20 @@
     "alt": "青いローポリ人型のAIが「結論から言うね、あなたは悪くない」「ここにいるよ、いつでもね」などの言葉で寄り添う、動くスタンプ24個の一覧（一覧は1コマ目）",
     "visible": true,
     "release_date": "2026-11-04"
+  },
+  {
+    "slug": "polite-ai-assistant",
+    "folder": "丁寧すぎるAI",
+    "src_dir": "C:\\Users\\tashi\\OneDrive\\Desktop\\LUBITA WORKS\\休憩室\\LINEスタンプ試作\\AI口調スタンプ\\APNG_シリーズ1",
+    "animated": true,
+    "name": "丁寧すぎるAI【優秀アシスタント編】",
+    "chara": "ポリゴンAI",
+    "count": 24,
+    "price": 250,
+    "blurb": "青いローポリ人型のAIが、丁寧すぎる口調で返事をする動くスタンプ24個。「おっしゃる通りです」「素晴らしい着眼点です」などAIあるあるです。無表情なのに、よく動きます。",
+    "line_url": "https://line.me/S/sticker/37733944",
+    "alt": "青いローポリ人型のAIが「おっしゃる通りです」「素晴らしい着眼点です」などの丁寧すぎる言葉で返事をする、動くスタンプ24個の一覧（一覧は1コマ目）",
+    "visible": true,
+    "release_date": "2026-11-04"
   }
 ]
