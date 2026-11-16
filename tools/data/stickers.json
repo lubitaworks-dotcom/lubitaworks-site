@@ -211,5 +211,35 @@
     "alt": "色とりどりの丸顔キャラが「推」「可」「否」「草」「了」「謝」「尊」などの大きな漢字一文字と並ぶ、スタンプ40個の一覧",
     "visible": true,
     "release_date": "2026-11-16"
+  },
+  {
+    "slug": "round-face-kanji-anime-nichijo",
+    "folder": "丸顔漢字_動く日常編",
+    "src_dir": "C:\\Users\\tashi\\OneDrive\\Desktop\\LUBITA WORKS\\休憩室\\LINEスタンプ試作\\漢字スタンプ\\動く版\\日常編\\4_申請用",
+    "animated": true,
+    "name": "動く！色で伝わる丸顔漢字【返事・日常編】",
+    "chara": "丸顔キャラ",
+    "count": 24,
+    "price": 250,
+    "blurb": "気分で体の色が変わる丸顔キャラが、大きな漢字一文字で思いきり動く！「了」「可」「済」「祝」「謝」など、返事とあいさつ、毎日の一言にぴったりの動くスタンプ24個。",
+    "line_url": "https://line.me/S/sticker/38016461",
+    "alt": "色とりどりの丸顔キャラが「了」「可」「否」「済」「祝」「謝」などの大きな漢字一文字と一緒に動く、動くスタンプ24個の一覧（一覧は1コマ目）",
+    "visible": true,
+    "release_date": "2026-11-17"
+  },
+  {
+    "slug": "round-face-kanji-anime-kimochi",
+    "folder": "丸顔漢字_動く気持ち編",
+    "src_dir": "C:\\Users\\tashi\\OneDrive\\Desktop\\LUBITA WORKS\\休憩室\\LINEスタンプ試作\\漢字スタンプ\\動く版\\気持ち編\\4_申請用",
+    "animated": true,
+    "name": "動く！色で伝わる丸顔漢字【気持ち編】",
+    "chara": "丸顔キャラ",
+    "count": 24,
+    "price": 250,
+    "blurb": "気分で体の色が変わる丸顔キャラが、大きな漢字一文字で思いきり動く！「推」「草」「爆」「尊」「謎」など、気持ちとネット語にぴったりの動くスタンプ24個。",
+    "line_url": "https://line.me/S/sticker/38015809",
+    "alt": "色とりどりの丸顔キャラが「推」「滅」「草」「好」「爆」「尊」などの大きな漢字一文字と一緒に動く、動くスタンプ24個の一覧（一覧は1コマ目）",
+    "visible": true,
+    "release_date": "2026-11-17"
   }
 ]
