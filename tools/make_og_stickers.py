@@ -33,8 +33,12 @@ def font(name, size):
 def card(im, x, y, size, d, canvas):
     d.rectangle([x + 10, y + 10, x + size + 10, y + size + 10], fill=SHADOW)
     d.rectangle([x, y, x + size, y + size], fill=PAPER, outline=TEAL, width=4)
-    a = im.resize((size - 8, size - 8), Image.LANCZOS)
-    canvas.paste(a, (x + 4, y + 4), a)
+    # 縦横比を保って枠に収める（正方形でない絵も歪ませない）。余白は中央寄せ
+    box = size - 8
+    k = min(box / im.width, box / im.height)
+    w, h = round(im.width * k), round(im.height * k)
+    a = im.resize((w, h), Image.LANCZOS)
+    canvas.paste(a, (x + 4 + (box - w) // 2, y + 4 + (box - h) // 2), a)
 
 
 def main():
