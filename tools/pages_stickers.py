@@ -55,4 +55,4 @@ def build():
 </section>"""
     return {"/stickers/": page(title="LINEスタンプ", path="/stickers/", crumb=breadcrumb(("stickers", None)),
                                og_image="/assets/img/og-stickers-2.png",
-                               desc="LUBITA WORKSのLINEスタンプ。ルビタ図鑑のモンスターが、ドット絵のスタンプになりました。", body=body)}
+                               desc="LUBITA WORKSのLINEスタンプ。ドット絵のモンスターから、色で気分が伝わる丸顔の漢字・オノマトペまで、返事に使えるスタンプを販売中です。", body=body)}

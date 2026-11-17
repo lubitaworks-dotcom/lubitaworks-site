@@ -28,7 +28,7 @@ def app_rows(apps):
     return "\n".join(rows)
 
 
-def devlog(apps, stickers=(), limit=8):
+def devlog(apps, stickers=(), limit=10):
     """NEWS（アプリの更新＋LINEスタンプの発売）を日付の新しい順に。日付が確認できていない項目は載せない。
     スタンプは stickers.json の release_date があるものだけ（公開表示にするときに発売日を入れる）。"""
     # 同じ日付なら、スタンプ（先に並べる）→アプリの更新の順（日付だけで時刻は持たないため、sort は安定ソートで先に入れた方が上）
@@ -103,7 +103,7 @@ def zhead(sub, title="敵キャラ図鑑", img="rubita_surprised_20", alt="お�
   </div>"""
 
 
-STICKER_LEAD = "ルビタ図鑑のモンスターが、LINEスタンプになったよ！ドット絵で、毎日のあいさつや返事に使えるんだ。"
+STICKER_LEAD = "ドット絵のモンスターから、色で気分が伝わる丸顔まで。毎日のあいさつや返事に使えるスタンプが、いろいろそろったよ！"
 ZUKAN_LEAD = "電脳の世界にひそむ敵キャラが、毎朝Xに1体ずつ出てくるよ。出会った全員を、ここに図鑑として残していくね！"
 
 
