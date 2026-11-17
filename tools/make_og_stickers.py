@@ -57,7 +57,7 @@ def main():
         im = Image.open(SRC / rel)
         im.seek(0)
         card(im.convert("RGBA"), x, y, CARD_SIZE, d, c)
-    out = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "assets/img/og-stickers.png"
+    out = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "assets/img/og-stickers-2.png"
     c.save(out, optimize=True)
     print(out, out.stat().st_size // 1024, "KB")
 

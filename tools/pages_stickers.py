@@ -54,5 +54,5 @@ def build():
   <p class="muted" style="font-size:14px;margin:0">スタンプの絵は、画像生成AIを使って制作しています。価格はLINEストアの表示が優先されます。</p>
 </section>"""
     return {"/stickers/": page(title="LINEスタンプ", path="/stickers/", crumb=breadcrumb(("stickers", None)),
-                               og_image="/assets/img/og-stickers.png",
+                               og_image="/assets/img/og-stickers-2.png",
                                desc="LUBITA WORKSのLINEスタンプ。ルビタ図鑑のモンスターが、ドット絵のスタンプになりました。", body=body)}
