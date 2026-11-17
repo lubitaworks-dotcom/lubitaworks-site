@@ -241,5 +241,35 @@
     "alt": "色とりどりの丸顔キャラが「推」「滅」「草」「好」「爆」「尊」などの大きな漢字一文字と一緒に動く、動くスタンプ24個の一覧（一覧は1コマ目）",
     "visible": true,
     "release_date": "2026-11-17"
+  },
+  {
+    "slug": "round-face-ono-anime-kibun",
+    "folder": "丸顔オノマトペ_動く気分編",
+    "src_dir": "C:\\Users\\tashi\\OneDrive\\Desktop\\LUBITA WORKS\\休憩室\\LINEスタンプ試作\\オノマトペ\\動く版\\気分編\\4_申請用",
+    "animated": true,
+    "name": "動く！色で伝わる丸顔オノマトペ【気分編】",
+    "chara": "丸顔キャラ",
+    "count": 24,
+    "price": 250,
+    "blurb": "キラキラ、ドキドキ、ムカッ、ガーン。気分で色が変わる丸顔と大きな擬音語が、動いて気持ちを伝えます。うれしい・怒る・悲しいなど、感情を表す動くスタンプ24個。",
+    "line_url": "https://line.me/S/sticker/38033631",
+    "alt": "色とりどりの丸顔キャラが「キラキラ」「ドキドキ」「ムカッ」「ガーン」などの大きな擬音語と一緒に動く、動くスタンプ24個の一覧（一覧は1コマ目）",
+    "visible": true,
+    "release_date": "2026-11-17"
+  },
+  {
+    "slug": "round-face-ono-anime-bamen",
+    "folder": "丸顔オノマトペ_動く場面編",
+    "src_dir": "C:\\Users\\tashi\\OneDrive\\Desktop\\LUBITA WORKS\\休憩室\\LINEスタンプ試作\\オノマトペ\\動く版\\場面編\\4_申請用",
+    "animated": true,
+    "name": "動く！色で伝わる丸顔オノマトペ【場面編】",
+    "chara": "丸顔キャラ",
+    "count": 24,
+    "price": 250,
+    "blurb": "ガチャ、パキッ、どっかーん、しーん。気分で色が変わる丸顔と大きな擬音語が、動いて場面を伝えます。日常の動作や空気を表す動くスタンプ24個。",
+    "line_url": "https://line.me/S/sticker/38034043",
+    "alt": "色とりどりの丸顔キャラが「ざわざわ」「ピンポーン」「しーん」「どっかーん」などの大きな擬音語と一緒に動く、動くスタンプ24個の一覧（一覧は1コマ目）",
+    "visible": true,
+    "release_date": "2026-11-17"
   }
 ]
