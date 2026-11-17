@@ -53,7 +53,7 @@ def write_seo(written):
     """sitemap.xml と robots.txt。404 は載せない。privacy は既存ページなので、あるものだけ載せる。"""
     from lib import SITE
     urls = ["/" if p == ROOT / "index.html" else "/" + p.parent.relative_to(ROOT).as_posix() + "/"
-            for p in written if p.name == "index.html"]
+            for p in written if p.name == "index.html" and p.relative_to(ROOT).parts[0] != "x"]  # /x/ は計測用の転送ページ
     urls += ["/privacy/" + d.name + "/" for d in sorted((ROOT / "privacy").glob("*/")) if (d / "index.html").exists()]
     nl = chr(10)
     rows = "".join(f"  <url><loc>{SITE}{u}</loc></url>{nl}" for u in sorted(set(urls)))

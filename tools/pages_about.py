@@ -20,6 +20,13 @@ def build():
   <h2 class="hh">このサイトについて</h2>
 
   <div class="about">
+    <h3 id="work">事業内容</h3>
+    <ul>
+      <li>映像制作：テレビ番組の制作（企画から編集まで）と、企業の公式SNS向けショート動画の制作。AIツールも取り入れた映像編集にも取り組んでいます。</li>
+      <li>アプリ開発・LINEスタンプ制作：暮らしにそっと寄りそう小さなアプリと、LINEスタンプをつくっています。</li>
+      <li>鹿児島を拠点に、全国のご依頼に対応しています。映像制作のご相談・お見積りは、<a href="mailto:{MAIL}">{MAIL}</a> までお気軽にご連絡ください。</li>
+    </ul>
+
     <h3>運営者情報</h3>
     <ul>
       <li>屋号：LUBITA WORKS（ルビタワークス）</li>
@@ -61,4 +68,4 @@ def build():
   </div>
 </section>"""
     return {"/about/": page(title="このサイトについて", path="/about/", crumb=breadcrumb(("about", None)),
-                            desc="LUBITA WORKS の運営者情報、画像・文章の扱い、免責、使用しているフォントについて。", body=body)}
+                            desc="LUBITA WORKS（映像制作・アプリ開発・LINEスタンプ）の事業内容、運営者情報、画像・文章の扱い、免責、使用しているフォントについて。", body=body)}
