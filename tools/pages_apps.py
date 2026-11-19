@@ -1,8 +1,16 @@
 """アプリ詳細 /apps/{slug}/ ×6。データは tools/data/apps.json。"""
+import hashlib
 from html import escape as e
+from pathlib import Path
 
 import parts
 from lib import MAIL, breadcrumb, page
+
+
+def _ver(slug, i):
+    """画像の内容から作る短い版番号。画像が変わったときだけURLが変わる。"""
+    f = Path(__file__).resolve().parent.parent / "assets/img/apps" / slug / f"shot{i}.webp"
+    return hashlib.md5(f.read_bytes()).hexdigest()[:8]
 
 
 def _body(a, apps):
@@ -15,7 +23,7 @@ def _body(a, apps):
                   f'alt="Google Playで手に入れよう" width="176" height="52"></a>')
     shots = "\n".join(
         f'    <div class="shot"><div class="win-bar dot"><i></i><i></i><i></i><span>shot_{i:02d}</span></div>'
-        f'<img src="/assets/img/apps/{a["slug"]}/shot{i}.webp" alt="{e(s["alt"])}" width="440" height="952" loading="lazy"></div>'
+        f'<img src="/assets/img/apps/{a["slug"]}/shot{i}.webp?v={_ver(a["slug"], i)}" alt="{e(s["alt"])}" width="440" height="952" loading="lazy"></div>'
         for i, s in enumerate(a["shots"], 1))
     feats = "\n".join(
         f'    <div><span class="n dot">FEATURE {i:02d}</span><b>{e(f["title"])}</b><span class="s">{e(f["body"])}</span></div>'
