@@ -290,7 +290,11 @@ footer.site a { display: inline-flex; align-items: center; min-height: 44px; }
 .stoc .cs { display: flex; flex-wrap: wrap; gap: 8px; }
 .stoc .cs a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border: 2px solid var(--ac); color: var(--ac); font-size: 14px; text-decoration: none; white-space: nowrap; }
 .stoc .cs a:hover { background: var(--ac); color: var(--onac); }
-.stoc .cs b { background: var(--amf); color: var(--onam); font-weight: 400; font-size: 12px; padding: 0 5px; }
+.stoc .cs b { background: var(--ac); color: var(--onac); font-weight: 400; font-size: 12px; padding: 0 5px; }
+.stoc .cs a:hover b { background: var(--onac); color: var(--ac); }
+.stoc .cs b.new { background: var(--amf); color: var(--onam); margin-left: 0; }
+.stoc .cs a:hover b.new { background: var(--amf); color: var(--onam); }
+.stk h2 .new { margin-left: 10px; vertical-align: middle; white-space: nowrap; }
 @media (max-width: 640px) { .stoc .srow { grid-template-columns: 1fr; } .stoc .lb { padding-top: 0; } }
 .stk { scroll-margin-top: 16px; }
 .stk { border: 2px solid var(--ac); background: var(--pn); box-shadow: var(--sd) var(--sd) 0 var(--sh); }

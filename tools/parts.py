@@ -1,4 +1,5 @@
 """ページをまたいで使うHTML部品（トップ・図鑑・アプリ詳細）。構造とクラス名は handoff の叩き台に合わせてある。"""
+import datetime
 import json
 import re
 from html import escape as e
@@ -78,6 +79,18 @@ def overseas_stickers(sets):
     return [x for x in sets if x.get("region")]
 
 
+NEWB = '<b class="new">NEW</b>'
+NEW_DAYS = 7   # 販売開始から何日間、NEWを付けるか
+
+
+def is_new(x):
+    """販売開始日（release_date）から NEW_DAYS 日以内なら True。日本時間で数える（毎朝の自動ビルドで自然に外れる）。"""
+    if not x.get("release_date"):
+        return False
+    today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).date()
+    return 0 <= (today - datetime.date.fromisoformat(x["release_date"])).days <= NEW_DAYS
+
+
 def nb(name):
     """名前を、カタカナ・漢字・ひらがな・【…】のかたまりに分け、かたまりの途中では折り返さない（「ス/タンプ」「オ/ノマトペ」を防ぐ）。
     1つのかたまりが長すぎて列を押し広げないよう、全体は nowrap にしない。"""
@@ -97,7 +110,7 @@ def sticker_toc(sets):
     out = []
     for label, items in rows.items():
         chips = "".join(
-            f'<a href="#{x["slug"]}">{"<b>動く</b>" if x.get("animated") else ""}{e(x.get("short") or x["name"])}</a>' for x in items)
+            f'<a href="#{x["slug"]}">{"<b>動く</b>" if x.get("animated") else ""}{e(x.get("short") or x["name"])}{NEWB if is_new(x) else ""}</a>' for x in items)
         out.append(f'    <div class="srow"><span class="lb dot">{e(label)}</span><span class="cs">{chips}</span></div>')
     return f'''  <nav class="stoc" aria-label="スタンプのシリーズ">
     <p class="muted dot">シリーズから探す（全{len(sets)}セット）</p>
@@ -107,7 +120,7 @@ def sticker_toc(sets):
 
 def sticker_cards(sets):
     return chr(10).join(
-        f'    <a class="card" href="/stickers/#{x["slug"]}" style="text-decoration:none"><span class="cap dot">LINE STICKER / {x["count"]}</span>'
+        f'    <a class="card" href="/stickers/#{x["slug"]}" style="text-decoration:none"><span class="cap dot">LINE STICKER / {x["count"]}{NEWB if is_new(x) else ""}</span>'
         f'<div class="art"><img src="/assets/img/stickers/{x["slug"]}-main.webp" alt="{e(x["name"])}のメイン画像" width="240" height="240" loading="lazy"></div>'
         f'<span class="nm">{nb(x["name"])}</span></a>' for x in sets)
 

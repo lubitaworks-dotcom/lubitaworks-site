@@ -26,7 +26,7 @@ def _set(x):
     <div class="top">
       <div class="art"><img src="/assets/img/stickers/{x["slug"]}-main.webp" alt="{e(x["name"])}のメイン画像" width="240" height="240" loading="lazy"></div>
       <div class="info">
-        <h2 class="hh"><span>{parts.nb(x["name"])}</span></h2>{local}
+        <h2 class="hh"><span>{parts.nb(x["name"])}{parts.NEWB if parts.is_new(x) else ""}</span></h2>{local}
         <div class="chips dot">{chips}</div>
         <p class="muted" style="margin:0">{e(x["blurb"])}</p>
         <div>{go}</div>
