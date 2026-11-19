@@ -79,11 +79,30 @@ def overseas_stickers(sets):
 
 
 def nb(name):
-    """末尾の「（返事）スタンプ」を1かたまりにして、「ス/タンプ」のような途中折り返しを防ぐ。"""
-    m = re.search(r"(返事)?スタンプ$", name)
-    if not m:
-        return e(name)
-    return e(name[:m.start()]) + f'<span style="white-space:nowrap">{e(m.group(0))}</span>'
+    """名前を、カタカナ・漢字・ひらがな・【…】のかたまりに分け、かたまりの途中では折り返さない（「ス/タンプ」「オ/ノマトペ」を防ぐ）。
+    1つのかたまりが長すぎて列を押し広げないよう、全体は nowrap にしない。"""
+    out = []
+    for tok in re.findall(r"【[^】]*】|[ァ-ヶー]+|[一-龠々]+|[ぁ-ん]+|.", name):
+        out.append(f'<span style="white-space:nowrap">{e(tok)}</span>' if len(tok) >= 2 else e(tok))
+    return "".join(out)
+
+
+def sticker_toc(sets):
+    """スタンプページ先頭の目次。シリーズごとに、各セットへジャンプするチップを並べる（JS不要）。
+    シリーズ・短い名前は stickers.json の series / short（無ければ chara / name）。海外限定版は別の行にまとめる。"""
+    rows = {}
+    for x in sets:   # sets は新しい順。シリーズの行も、最新のセットがあるものが上
+        key = f'海外限定版（{"・".join(dict.fromkeys(REGIONS[y["region"]]["name"] for y in sets if y.get("region")))}）' if x.get("region") else x.get("series") or x["chara"]
+        rows.setdefault(key, []).append(x)
+    out = []
+    for label, items in rows.items():
+        chips = "".join(
+            f'<a href="#{x["slug"]}">{"<b>動く</b>" if x.get("animated") else ""}{e(x.get("short") or x["name"])}</a>' for x in items)
+        out.append(f'    <div class="srow"><span class="lb dot">{e(label)}</span><span class="cs">{chips}</span></div>')
+    return f'''  <nav class="stoc" aria-label="スタンプのシリーズ">
+    <p class="muted dot">シリーズから探す（全{len(sets)}セット）</p>
+{chr(10).join(out)}
+  </nav>'''
 
 
 def sticker_cards(sets):

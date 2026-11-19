@@ -283,6 +283,16 @@ footer.site a { display: inline-flex; align-items: center; min-height: 44px; }
 }
 
 /* LINEスタンプ（/stickers/） */
+.stoc { border: 2px solid var(--ac); background: var(--pn); padding: 12px 16px; display: flex; flex-direction: column; gap: 10px; }
+.stoc > p { margin: 0; font-size: 13px; }
+.stoc .srow { display: grid; grid-template-columns: 11em 1fr; gap: 8px 12px; align-items: start; }
+.stoc .lb { font-size: 13px; color: var(--hd); padding-top: 10px; }
+.stoc .cs { display: flex; flex-wrap: wrap; gap: 8px; }
+.stoc .cs a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px; border: 2px solid var(--ac); color: var(--ac); font-size: 14px; text-decoration: none; white-space: nowrap; }
+.stoc .cs a:hover { background: var(--ac); color: var(--onac); }
+.stoc .cs b { background: var(--amf); color: var(--onam); font-weight: 400; font-size: 12px; padding: 0 5px; }
+@media (max-width: 640px) { .stoc .srow { grid-template-columns: 1fr; } .stoc .lb { padding-top: 0; } }
+.stk { scroll-margin-top: 16px; }
 .stk { border: 2px solid var(--ac); background: var(--pn); box-shadow: var(--sd) var(--sd) 0 var(--sh); }
 .stk .top { display: grid; grid-template-columns: 200px 1fr; gap: 20px; padding: 16px; align-items: start; }
 .stk .art { aspect-ratio: 1; background: #f5f6f1; border: 2px solid var(--ac); }
@@ -290,6 +300,11 @@ footer.site a { display: inline-flex; align-items: center; min-height: 44px; }
 .stk .info { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
 .stk .info h2.hh { font-size: clamp(18px, 4.6vw, 22px); line-height: 1.4; }
 .stk .shcap { margin: 0; padding: 8px 16px; font-size: 13px; color: var(--mu); border-top: 2px solid var(--ac); }
+.stk summary.shcap { display: flex; align-items: center; min-height: 44px; cursor: pointer; list-style: none; color: var(--ac); }
+.stk summary.shcap::-webkit-details-marker { display: none; }
+.stk summary.shcap:focus-visible { outline: 3px solid var(--amf); outline-offset: -3px; }
+.stk .shbox:not([open]) .o, .stk .shbox[open] .c { display: none; }
+.stk .shnote { margin: 0; padding: 0 16px 8px; font-size: 13px; color: var(--mu); }
 .stk .sheet { border-top: 2px solid var(--ac); background: #f5f6f1; }
 .stk .sheet img { width: 100%; height: auto; display: block; }
 @media (max-width: 640px) { .stk .top { grid-template-columns: 1fr; } .stk .art { max-width: 200px; } }

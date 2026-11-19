@@ -10,7 +10,9 @@
     "line_url": "https://line.me/S/sticker/37563695",
     "alt": "雲のような毛のヒツジが「了解！」「ありがとう」などの言葉で返事をする、ドット絵のスタンプ16個の一覧",
     "visible": true,
-    "release_date": "2026-10-27"
+    "release_date": "2026-10-27",
+    "series": "ドット絵モンスター",
+    "short": "ヒツジ"
   },
   {
     "slug": "rock-crab",
@@ -23,7 +25,9 @@
     "line_url": "https://line.me/S/sticker/37563747",
     "alt": "大きな金のカギ（南京錠）に住むヤドカリが「チョキっと待って」「居留守です」などの言葉で返事をする、ドット絵のスタンプ16個の一覧",
     "visible": true,
-    "release_date": "2026-10-27"
+    "release_date": "2026-10-27",
+    "series": "ドット絵モンスター",
+    "short": "ヤドカリ"
   },
   {
     "slug": "letter-bat",
@@ -36,7 +40,9 @@
     "line_url": "https://line.me/S/sticker/37609582",
     "alt": "封筒の羽をもつコウモリが「寒っ！」「鍋しよう！」「外見て！雪！」などの言葉で冬の返事をする、ドット絵のスタンプ16個の一覧",
     "visible": true,
-    "release_date": "2026-10-29"
+    "release_date": "2026-10-29",
+    "series": "ドット絵モンスター",
+    "short": "コウモリ"
   },
   {
     "slug": "cloud-sheep-anime",
@@ -51,7 +57,9 @@
     "alt": "雲のような毛のヒツジが「了解！」「遅れそう…」「ダッシュで行く！」などの言葉で返事をする、動くドット絵スタンプ24個の一覧（一覧は1コマ目）",
     "visible": true,
     "export": "5_提出用_切詰め",
-    "release_date": "2026-10-30"
+    "release_date": "2026-10-30",
+    "series": "ドット絵モンスター",
+    "short": "ヒツジ"
   },
   {
     "slug": "doya-chu",
@@ -65,7 +73,9 @@
     "line_url": "https://line.me/S/sticker/37708255",
     "alt": "赤・黄・桃・緑・青の5匹のネズミ戦隊が「作戦通り」「知らんがな」「ずっこけ」などの言葉でリアクションする、ドット絵のスタンプ24個の一覧",
     "visible": true,
-    "release_date": "2026-11-03"
+    "release_date": "2026-11-03",
+    "series": "ドヤちゅー隊",
+    "short": "第1弾"
   },
   {
     "slug": "doya-chu-anime",
@@ -80,7 +90,9 @@
     "line_url": "https://line.me/S/sticker/37709956",
     "alt": "赤・黄・桃・緑・青の5匹のネズミ戦隊が「作戦通り」「知らんがな」「ずっこけ」などの言葉でリアクションする、動くドット絵スタンプ24個の一覧（一覧は1コマ目）",
     "visible": true,
-    "release_date": "2026-11-03"
+    "release_date": "2026-11-03",
+    "series": "ドヤちゅー隊",
+    "short": "第1弾"
   },
   {
     "slug": "polite-ai-error",
@@ -95,7 +107,9 @@
     "line_url": "https://line.me/S/sticker/37733937",
     "alt": "青いローポリ人型のAIが「先ほどの訂正を訂正します」などの言葉で謝ったり言い訳をしたりする、動くスタンプ24個の一覧（一覧は1コマ目）",
     "visible": true,
-    "release_date": "2026-11-03"
+    "release_date": "2026-11-03",
+    "series": "丁寧すぎるAI",
+    "short": "ちょっぴりエラー編"
   },
   {
     "slug": "healing-friend-ai",
@@ -110,7 +124,9 @@
     "line_url": "https://line.me/S/sticker/37739629",
     "alt": "青いローポリ人型のAIが「結論から言うね、あなたは悪くない」「ここにいるよ、いつでもね」などの言葉で寄り添う、動くスタンプ24個の一覧（一覧は1コマ目）",
     "visible": true,
-    "release_date": "2026-11-04"
+    "release_date": "2026-11-04",
+    "series": "丁寧すぎるAI",
+    "short": "ココロを癒す友だち"
   },
   {
     "slug": "polite-ai-assistant",
@@ -125,7 +141,9 @@
     "line_url": "https://line.me/S/sticker/37733944",
     "alt": "青いローポリ人型のAIが「おっしゃる通りです」「素晴らしい着眼点です」などの丁寧すぎる言葉で返事をする、動くスタンプ24個の一覧（一覧は1コマ目）",
     "visible": true,
-    "release_date": "2026-11-04"
+    "release_date": "2026-11-04",
+    "series": "丁寧すぎるAI",
+    "short": "優秀アシスタント編"
   },
   {
     "slug": "doya-chu-anime-2",
@@ -140,7 +158,9 @@
     "line_url": "https://line.me/S/sticker/37814411",
     "alt": "赤・黄・桃・緑・青の5匹のネズミ戦隊が、「いいね！」「ありがとう」「気をつけてね」などの言葉でリアクションする、動くドット絵スタンプ24個の一覧（一覧は1コマ目）",
     "visible": true,
-    "release_date": "2026-11-06"
+    "release_date": "2026-11-06",
+    "series": "ドヤちゅー隊",
+    "short": "第2弾"
   },
   {
     "slug": "osaka-obachan",
@@ -154,7 +174,9 @@
     "line_url": "https://line.me/S/sticker/37869338",
     "alt": "表情豊かな大阪のおばちゃんが、大笑い・泣き・ツッコミ・あめちゃんなどの顔でリアクションする、スタンプ24個の一覧",
     "visible": true,
-    "release_date": "2026-11-10"
+    "release_date": "2026-11-10",
+    "series": "表情豊かシリーズ",
+    "short": "大阪のおばちゃん"
   },
   {
     "slug": "angel-face",
@@ -168,7 +190,9 @@
     "line_url": "https://line.me/S/sticker/37885626",
     "alt": "表情豊かな天使が、祈り・ハート・しーっ・悪い顔などの表情でリアクションする、スタンプ24個の一覧",
     "visible": true,
-    "release_date": "2026-11-10"
+    "release_date": "2026-11-10",
+    "series": "表情豊かシリーズ",
+    "short": "天使"
   },
   {
     "slug": "witch-face",
@@ -182,7 +206,9 @@
     "line_url": "https://line.me/S/sticker/37892397",
     "alt": "表情豊かな魔女が、高笑い・林檎・鏡にショック・黒猫と頬ずりなどの顔でリアクションする、スタンプ24個の一覧",
     "visible": true,
-    "release_date": "2026-11-10"
+    "release_date": "2026-11-10",
+    "series": "表情豊かシリーズ",
+    "short": "魔女"
   },
   {
     "slug": "manager-face",
@@ -196,7 +222,9 @@
     "line_url": "https://line.me/S/sticker/37907225",
     "alt": "表情豊かな部長が、君ぃ！・名刺・ハンコ・ペコペコ・乾杯などの顔でリアクションする、スタンプ24個の一覧",
     "visible": true,
-    "release_date": "2026-11-11"
+    "release_date": "2026-11-11",
+    "series": "表情豊かシリーズ",
+    "short": "部長"
   },
   {
     "slug": "round-face-kanji",
@@ -210,7 +238,9 @@
     "line_url": "https://line.me/S/sticker/38013503",
     "alt": "色とりどりの丸顔キャラが「推」「可」「否」「草」「了」「謝」「尊」などの大きな漢字一文字と並ぶ、スタンプ40個の一覧",
     "visible": true,
-    "release_date": "2026-11-16"
+    "release_date": "2026-11-16",
+    "series": "丸顔（漢字・オノマトペ）",
+    "short": "漢字一文字"
   },
   {
     "slug": "round-face-kanji-anime-nichijo",
@@ -225,7 +255,9 @@
     "line_url": "https://line.me/S/sticker/38016461",
     "alt": "色とりどりの丸顔キャラが「了」「可」「否」「済」「祝」「謝」などの大きな漢字一文字と一緒に動く、動くスタンプ24個の一覧（一覧は1コマ目）",
     "visible": true,
-    "release_date": "2026-11-17"
+    "release_date": "2026-11-17",
+    "series": "丸顔（漢字・オノマトペ）",
+    "short": "漢字【返事・日常編】"
   },
   {
     "slug": "round-face-kanji-anime-kimochi",
@@ -240,7 +272,9 @@
     "line_url": "https://line.me/S/sticker/38015809",
     "alt": "色とりどりの丸顔キャラが「推」「滅」「草」「好」「爆」「尊」などの大きな漢字一文字と一緒に動く、動くスタンプ24個の一覧（一覧は1コマ目）",
     "visible": true,
-    "release_date": "2026-11-17"
+    "release_date": "2026-11-17",
+    "series": "丸顔（漢字・オノマトペ）",
+    "short": "漢字【気持ち編】"
   },
   {
     "slug": "round-face-ono-anime-kibun",
@@ -255,7 +289,9 @@
     "line_url": "https://line.me/S/sticker/38033631",
     "alt": "色とりどりの丸顔キャラが「キラキラ」「ドキドキ」「ムカッ」「ガーン」などの大きな擬音語と一緒に動く、動くスタンプ24個の一覧（一覧は1コマ目）",
     "visible": true,
-    "release_date": "2026-11-17"
+    "release_date": "2026-11-17",
+    "series": "丸顔（漢字・オノマトペ）",
+    "short": "オノマトペ【気分編】"
   },
   {
     "slug": "round-face-ono-anime-bamen",
@@ -270,7 +306,9 @@
     "line_url": "https://line.me/S/sticker/38034043",
     "alt": "色とりどりの丸顔キャラが「ざわざわ」「ピンポーン」「しーん」「どっかーん」などの大きな擬音語と一緒に動く、動くスタンプ24個の一覧（一覧は1コマ目）",
     "visible": true,
-    "release_date": "2026-11-17"
+    "release_date": "2026-11-17",
+    "series": "丸顔（漢字・オノマトペ）",
+    "short": "オノマトペ【場面編】"
   },
   {
     "slug": "round-face-ono",
@@ -284,6 +322,8 @@
     "line_url": "https://line.me/S/sticker/38043537",
     "alt": "色とりどりの丸顔キャラが「パチパチ」「ガクッ」「ひゃっほー」「ヒソヒソ」などの大きな擬音語と並ぶ、スタンプ40個の一覧",
     "visible": true,
-    "release_date": "2026-11-17"
+    "release_date": "2026-11-17",
+    "series": "丸顔（漢字・オノマトペ）",
+    "short": "オノマトペ"
   }
 ]

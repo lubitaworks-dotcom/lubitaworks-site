@@ -36,9 +36,9 @@ def build():
   <div class="tag">[ 01 ] LINE STICKER</div>
 {parts.zhead(parts.STICKER_LEAD, "LINEスタンプ", "rubita_happy_20", "にっこりするルビタ")}
   <div class="cards">
-{parts.sticker_cards(parts.jp_stickers(stickers))}
+{parts.sticker_cards(parts.jp_stickers(stickers)[:8])}
   </div>
-  <a class="btn dot more" href="/stickers/">&gt; スタンプを見る</a>
+  <a class="btn dot more" href="/stickers/">&gt; スタンプをすべて見る（{len(parts.jp_stickers(stickers))}セット）</a>
 </section>
 
 <section id="apps" class="blk">

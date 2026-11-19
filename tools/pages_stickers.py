@@ -32,8 +32,11 @@ def _set(x):
         <div>{go}</div>
       </div>
     </div>
-    <p class="shcap dot">▼ 全{x["count"]}個{"（一覧は1コマ目。動きはLINEストアで見られます）" if x.get("animated") else "（LINEストアで拡大して見られます）"}</p>
-    <div class="sheet"><img src="/assets/img/stickers/{x["slug"]}-sheet.webp" alt="{e(x["alt"])}" width="960" height="{(240 if x.get("animated") else 208) * ((x["count"] + 3) // 4)}" loading="lazy"></div>
+    <details class="shbox">
+      <summary class="shcap dot"><span class="c">▼ 全{x["count"]}個を見る</span><span class="o">▲ 一覧を閉じる</span></summary>
+      <p class="shnote dot">{"一覧は1コマ目です。動きはLINEストアで見られます。" if x.get("animated") else "LINEストアで拡大して見られます。"}</p>
+      <div class="sheet"><img src="/assets/img/stickers/{x["slug"]}-sheet.webp" alt="{e(x["alt"])}" width="960" height="{(240 if x.get("animated") else 208) * ((x["count"] + 3) // 4)}" loading="lazy"></div>
+    </details>
   </article>"""
 
 
@@ -49,6 +52,7 @@ def build():
     body = f"""<section class="blk" style="padding-top:8px">
   <div class="tag">[ 01 ] LINE STICKER</div>
 {parts.zhead(parts.STICKER_LEAD, "LINEスタンプ", "rubita_happy_20", "にっこりするルビタ")}
+{parts.sticker_toc(sets)}
 {chr(10).join(_set(x) for x in jp)}{overseas_html}
   <div><a class="btn line dot" href="{AUTHOR}">&gt; 作者ページ（LINEストア）</a></div>
   <p class="muted" style="font-size:14px;margin:0">スタンプの絵は、画像生成AIを使って制作しています。価格はLINEストアの表示が優先されます。</p>
