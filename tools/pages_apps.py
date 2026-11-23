@@ -4,6 +4,8 @@ from html import escape as e
 from pathlib import Path
 
 import parts
+
+ROOT = Path(__file__).resolve().parent.parent
 from lib import MAIL, breadcrumb, page
 
 
@@ -28,6 +30,17 @@ def _body(a, apps):
     feats = "\n".join(
         f'    <div><span class="n dot">FEATURE {i:02d}</span><b>{e(f["title"])}</b><span class="s">{e(f["body"])}</span></div>'
         for i, f in enumerate(a["features"], 1))
+    faq = ""
+    if a.get("faq"):
+        qa = "\n".join(f'    <details><summary>{e(x["q"])}</summary><p>{e(x["a"])}</p></details>' for x in a["faq"])
+        faq = f"""
+<section class="blk" style="padding-top:0">
+  <h2 class="hh">よくある質問</h2>
+  <div class="faq">
+{qa}
+  </div>
+</section>
+"""
     others = "\n".join(
         f'    <a href="/apps/{o["slug"]}/"><img src="/assets/img/icons/{o["slug"]}.png" alt="" width="80" height="80" loading="lazy">{e(o["name"])}</a>'
         for o in apps if o["slug"] != a["slug"])
@@ -65,7 +78,7 @@ def _body(a, apps):
 {feats}
   </div>
 </section>
-
+{faq}
 <section class="blk" style="padding-top:0">
   <div class="support">
     <div><b style="color:var(--hd)">サポート・規約</b><br><span class="muted" style="font-size:14px">お困りのときは、メールでお問い合わせください。</span></div>
@@ -90,6 +103,11 @@ def build():
     for a in apps:
         path = f"/apps/{a['slug']}/"
         crumb = breadcrumb(("apps", "/#apps"), (a["slug"], None))
-        out[path] = page(title=a["name"], path=path, crumb=crumb,
+        # iPhoneのSafariで、ページ上部にApp Storeへの案内（スマートアプリバナー）を出す
+        head_extra = f'<meta name="apple-itunes-app" content="app-id={a["apple_id"]}">\n'
+        # アプリ専用のSNS共有画像があれば使う（assets/img/og/{slug}.png）
+        og = f"/assets/img/og/{a['slug']}.png"
+        og_image = og if (ROOT / og.lstrip("/")).exists() else "/assets/img/og.png"
+        out[path] = page(title=a["name"], path=path, crumb=crumb, head_extra=head_extra, og_image=og_image,
                          desc=f"{a['name']}（{a['tagline']}）。{a['blurb']}", body=_body(a, apps))
     return out

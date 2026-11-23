@@ -312,3 +312,19 @@ footer.site a { display: inline-flex; align-items: center; min-height: 44px; }
 .stk .sheet { border-top: 2px solid var(--ac); background: #f5f6f1; }
 .stk .sheet img { width: 100%; height: auto; display: block; }
 @media (max-width: 640px) { .stk .top { grid-template-columns: 1fr; } .stk .art { max-width: 200px; } }
+/* トップの注目アプリ（PICK UP）。画像はアプリ詳細の1枚目＝ストアの表紙 */
+.pick-body { display: grid; grid-template-columns: 1fr 220px; gap: 28px; padding: 24px; align-items: center; }
+.pick-txt { display: flex; flex-direction: column; gap: 12px; }
+.pick .ident img { width: 72px; height: 72px; border-radius: 17px; }
+.pick .ident h2.hh { font-size: clamp(22px, 5vw, 30px); }
+.pick-pts { margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.pick-pts li { font-size: 14px; font-weight: 700; color: var(--hd); border: 1.5px solid var(--ac); padding: 4px 10px; }
+.pick-shot { display: block; line-height: 0; border: 2px solid var(--ac); box-shadow: 6px 6px 0 var(--sh); }
+.pick-shot img { width: 100%; height: auto; display: block; }
+@media (max-width: 640px) { .pick-body { grid-template-columns: 1fr; padding: 16px; gap: 18px; } .pick-shot { max-width: 220px; justify-self: center; } }
+/* アプリ詳細のよくある質問 */
+.faq { display: flex; flex-direction: column; gap: 10px; }
+.faq details { background: var(--pn); border: 1px solid var(--ln); }
+.faq summary { cursor: pointer; padding: 14px 18px; min-height: 44px; font-weight: 700; color: var(--hd); display: flex; align-items: center; }
+.faq summary:focus-visible { outline: 3px solid var(--amf); outline-offset: -3px; }
+.faq details p { margin: 0; padding: 0 18px 16px; color: var(--mu); font-size: 15px; }

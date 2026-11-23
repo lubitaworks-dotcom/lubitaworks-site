@@ -29,6 +29,39 @@ def app_rows(apps):
     return "\n".join(rows)
 
 
+def pickup(apps):
+    """トップの「注目アプリ」枠。apps.json で pickup を持つアプリだけ（無ければ空）。画像はアプリ詳細の1枚目（表紙）。"""
+    out = []
+    for a in apps:
+        p = a.get("pickup")
+        if not p:
+            continue
+        pts = "".join(f"<li>{e(x)}</li>" for x in p.get("points", []))
+        out.append(f"""<section id="pickup" class="blk">
+  <div class="tag">[ {e(p.get("label", "PICK UP"))} ] APP</div>
+  <div class="pick win">
+    <div class="win-bar dot"><i></i><i></i><i></i><span>{e(a["slug"])}.app</span></div>
+    <div class="pick-body">
+      <div class="pick-txt">
+        <div class="ident">
+          <img src="/assets/img/icons/{a["slug"]}.png" alt="{e(a["name"])}のアイコン" width="72" height="72">
+          <div><h2 class="hh">{e(a["name"])}</h2><span class="muted dot" style="font-size:14px">{platforms(a)}</span></div>
+        </div>
+        <p class="lead">{e(a["tagline"])}</p>
+        <p class="muted" style="margin:0">{e(p.get("lead", ""))}</p>
+        <ul class="pick-pts">{pts}</ul>
+        <div class="store">
+          <a href="https://apps.apple.com/jp/app/id{a["apple_id"]}"><img src="/assets/img/badges/appstore-ja.svg" alt="App Storeでダウンロード" width="141" height="52"></a>
+          <a class="btn line" href="/apps/{a["slug"]}/">&gt; 詳しく見る</a>
+        </div>
+      </div>
+      <a class="pick-shot" href="/apps/{a["slug"]}/"><img src="/assets/img/apps/{a["slug"]}/shot1.webp" alt="{e(a["shots"][0]["alt"]) if a.get("shots") else ""}" width="440" height="952" loading="lazy"></a>
+    </div>
+  </div>
+</section>""")
+    return "\n\n".join(out)
+
+
 def devlog(apps, stickers=(), limit=10):
     """NEWS（アプリの更新＋LINEスタンプの発売）を日付の新しい順に。日付が確認できていない項目は載せない。
     スタンプは stickers.json の release_date があるものだけ（公開表示にするときに発売日を入れる）。"""

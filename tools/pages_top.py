@@ -32,6 +32,8 @@ def build():
   <div class="rubita-wrap"><div class="rubita-frame"><img src="/assets/img/rubita_normal_20.png" alt="ロボのキャラクター「ルビタ」"></div></div>
 </section>
 
+{parts.pickup(apps)}
+
 <section id="stickers" class="blk">
   <div class="tag">[ 01 ] LINE STICKER</div>
 {parts.zhead(parts.STICKER_LEAD, "LINEスタンプ", "rubita_happy_20", "にっこりするルビタ")}
